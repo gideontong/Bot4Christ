@@ -65,3 +65,7 @@ All descriptions assume the command prefix is !, but the exclamation point can b
 - [ ] QR Code Generator
 
 **Description** Generate a QR code from a link or other message with one command.
+
+- [ ] Wheel Spinner
+
+**Description** Spin a wheel and win a fortune by using `!fortune` to find yourself a fortune.

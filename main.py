@@ -16,7 +16,7 @@ TOKEN = ''
 currentTime = datetime.datetime.now()
 logging.basicConfig(filename="logs/A4CDiscord.Log." + str(currentTime.year) + "." + str(currentTime.month) + "." +
     str(currentTime.day) + "." + str(currentTime.hour) + "." + str(currentTime.minute) + "." + str(currentTime.second) + ".txt",
-    filemode='w', level=logging.INFO,
+    filemode='w', level=logging.DEBUG,
     format='[%(levelname)s] %(name)s: %(asctime)s - %(message)s')
 root = logging.getLogger()
 root.setLevel(logging.DEBUG)
@@ -32,15 +32,31 @@ prefix = '!'
 
 @client.event
 async def on_message(message):
+    user = message.author.name + "#" + message.author.discriminator + " (" + \
+        message.author.display_name + ")"
+
     # Behavior for bot replying to itself
     if message.author == client.user:
         return
 
     if message.content.startswith(prefix + 'hello'):
         msg = 'Hello {0.author.mention}'.format(message)
-        logging.info(message.author.name + "#" + message.author.discriminator + " (" +
-            message.author.display_name + ") said hello to the bot.")
+        logging.info(user + " said hello to the bot.")
         await client.send_message(message.channel, msg)
+
+    if message.content.startswith(prefix + 'qr'):
+        input = message.content[4:len(message.content)]
+        qr = qrcode.QRCode(
+            version = 1,
+            error_correction = qrcode.constants.ERROR_CORRECT_H,
+            box_size = 10,
+            border = 4,)
+        qr.add_data(input)
+        logging.info(user + " made a QR code containing " + input)
+        qr.make(fit = True)
+        img = qr.make_image()
+        img.save("QR.jpg")
+        await client.send_file(message.channel, "QR.jpg")
 
 @client.event
 async def on_ready():

@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/gideontong/A4CDiscord/issues"
   },
-  "homepage": "https://github.com/gideontong/A4CDiscord#readme"
+  "homepage": "https://github.com/gideontong/A4CDiscord#readme",
+  "dependencies": {
+    "discord.js": "^11.4.2"
+  }
 }

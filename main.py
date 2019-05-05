@@ -11,6 +11,10 @@ import sys
 
 # Keys and Constants
 TOKEN = ''
+BANNED = [
+    'porn',
+    'xvideos'
+]
 
 # Global Logging Configuration
 currentTime = datetime.datetime.now()
@@ -46,6 +50,16 @@ async def on_message(message):
 
     if message.content.startswith(prefix + 'qr'):
         input = message.content[4:len(message.content)]
+        if len(input) > 1024:
+            logging.warn(user + " tried to make too large of a QR code! Length: " + str(len(input)))
+            msg = "{0.author.mention}, that's too large of a QR code!".format(message)
+            await client.send_message(message.channel, msg)
+            return
+        if any(x in input.lower() for x in BANNED):
+            logging.warn(user + " tried to make a QR code with a banned word! Original message: " + input)
+            msg = "{0.author.mention}, your message contained a perverse word!".format(message)
+            await client.send_message(message.channel, msg)
+            return
         qr = qrcode.QRCode(
             version = 1,
             error_correction = qrcode.constants.ERROR_CORRECT_H,
@@ -55,8 +69,8 @@ async def on_message(message):
         logging.info(user + " made a QR code containing " + input)
         qr.make(fit = True)
         img = qr.make_image()
-        img.save("QR.jpg")
-        await client.send_file(message.channel, "QR.jpg")
+        img.save("generates/QR.jpg")
+        await client.send_file(message.channel, "generates/QR.jpg")
 
 @client.event
 async def on_ready():

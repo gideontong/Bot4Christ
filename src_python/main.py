@@ -1,8 +1,3 @@
-"""
-This code was taken from the tutorial at 
-https://www.devdungeon.com/content/make-discord-bot-python
-"""
-
 import datetime
 import discord
 import qrcode

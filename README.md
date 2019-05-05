@@ -7,6 +7,7 @@ All descriptions assume the command prefix is !, but the exclamation point can b
 ## Current Features
 
 1. **Pingable Bot** Ping the bot using `!hello` to get a reply back.
+2. **QR Code Generator** Generate a QR code by typing `!qr [text]` and receive a QR code with the text contained within.
 
 ## Planned Features
 
@@ -62,10 +63,14 @@ All descriptions assume the command prefix is !, but the exclamation point can b
 
 **Description** Keeps track of how often people talk, as well as what channel they talk in, as well as what commands people use and how often the bot is used. Stored in a database for easy statistics and retrieval.
 
-- [ ] QR Code Generator
-
-**Description** Generate a QR code from a link or other message with one command.
-
 - [ ] Wheel Spinner
 
-**Description** Spin a wheel and win a fortune by using `!fortune` to find yourself a fortune.
+**Description** Spin a wheel and win a fortune by using `!fortune` to find yourself a fortune. (Credit: Nathan Yu)
+
+- [ ] Rock Paper Scissors
+
+**Description** Challenge another player to a game of rock, paper, and scissors. (Credit: Nathan Yu)
+
+- [ ] Tic Tac Toe
+
+**Description** Challenge another player to a game of tic, tac, toe. (Credit: Nathan Yu)

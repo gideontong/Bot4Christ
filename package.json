@@ -1,0 +1,20 @@
+{
+  "name": "A4CDiscord",
+  "version": "1.0.0",
+  "description": "This is a specialized Discord bot for the Chinese Christian Church of Thousand Oaks's Act4Christ youth group Discord server. It includes all of the standard features of Discord servers, as well as some additional features, which are detailed below.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gideontong/A4CDiscord.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gideontong/A4CDiscord/issues"
+  },
+  "homepage": "https://github.com/gideontong/A4CDiscord#readme"
+}

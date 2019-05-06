@@ -23,7 +23,7 @@ module.exports = async msg => {
 
             msg.channel.send(error)
 
-            console.error(`On execution of ` + command + `in ` + msg.guild.name + `, something went wrong: ` + err)
+            console.error(`On execution of ` + command + ` in ` + msg.guild.name + `, something went wrong: ` + err)
         });    
     }
 };

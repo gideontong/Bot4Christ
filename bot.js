@@ -14,7 +14,27 @@ bot.on("ready", function () {
 });
 
 bot.on('message', msg => {
-    if (msg.content === 'i love you') {
+    if (msg.content.toLowerCase().includes('i love you')) {
         msg.reply('i love paul too');
+    }
+});
+
+bot.on('message', msg => {
+    if (msg.content.toLowerCase().includes('paul is')) {
+        msg.reply('I don\'t have any time for any gossip now');
+    }
+});
+
+bot.on('message', msg => {
+    if (msg.content.toLowerCase().includes('dress')) {
+        attach = new Discord.Attachment("generates/dress.png")
+        msg.channel.send(attach)
+    }
+});
+
+bot.on('message', msg => {
+    if (msg.content.toLowerCase().includes('nissan')) {
+        attach = new Discord.Attachment("generates/nissan.png")
+        msg.channel.send(attach)
     }
 });

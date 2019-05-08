@@ -8,22 +8,34 @@ module.exports = async msg => {
     const args = msg.content.split(` `);
     const command = args.shift().slice(config.prefix.length);
     let cmdFile = require(`../../commands/${command}.js`);
-    console.log(`[command-execute] The command ${command} has been executed by ${msg.author.tag} in ${msg.guild.name}`)
+    console.log(`[COMMAND] The command ${command} has been executed by ${msg.author.tag} in ${msg.guild.name}`)
     if (!cmdFile) {
         return;
     }
     if (cmdFile) {
         cmdFile(bot, msg, args).catch(err => {
+            id = makeid(10)
             const error = new Discord.RichEmbed()
                 .setTitle(command)
                 .setDescription(`Sorry about this!`)
-                .addField(`Here's what returned`, "```" + err + "```", false)
-                .setFooter(`Contact a developer to fix this`)
+                .addField(`The error code is `, "```" + id + "```", false)
+                .setFooter(`Contact Gideon#5433 with this error message to get it fixed!`)
                 .setColor(0xf45c42)
 
             msg.channel.send(error)
-
-            console.error(`On execution of ` + command + ` in ` + msg.guild.name + `, something went wrong: ` + err)
+            
+            console.error(`[ERROR] The following error ID is ` + id)
+            console.error(`[ERROR] On execution of ` + command + ` in ` + msg.guild.name + `, something went wrong: ` + err)
         });    
     }
 };
+
+function makeid(length) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+       result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+ }

@@ -16,29 +16,52 @@ bot.on("ready", function () {
 bot.on('message', msg => {
     content = "";
     var attach;
-    if (msg.content.toLowerCase().includes('i love you')) {
+    key = msg.content.toLowerCase(); // The message in all lowercase
+    
+    // I love you, not that bad, and Paul is
+    if (key.includes('i love you')) {
         if(msg.author.username == "pyu") {
             content += "LOVE YOU TOO :heart: :heart_eyes: :heartpulse:";
         } else {
             content += "I love Paul, did you know that!?";
         }
-    } else if (msg.content.toLowerCase().includes('paul is')) {
+    } else if (key.includes('not that bad')) {
+        content += 'You sure about that? It\'s pretty bad'
+    } else if (key.includes('paul is')) {
         content += 'I don\'t have any time for any gossip now'
     }
-    if (msg.content.toLowerCase().includes('in a car')) {
-        if(msg.author.username == "pyu") {
-            content += "\nYour driving isn't safe, though..."
+    
+    // When Paul is talking about Emma
+    if (key.includes('emma ') && msg.author.username == "pyu") {
+        if (content.length > 0) {
+            content += "\n And "
+        }
+        content += "Paul, stop talking about me! :blush:"
+    }
+    
+    // Cars
+    if (key.includes('in a car') || key.includes('in the car')) {
+        if (content.length > 0) {
+            content += "\n Psst..."
+        }
+        if (msg.author.username == "pyu") {
+            content += "Your driving isn't safe, though..."
+        } else if (msg.author.username == "GoobyGoo") {
+            content += "HEY STOP TEXTING AND DRIVING... oh wait, you're not Paul. Carry on ;)"
         } else {
-            content += "\nAt least your driving seems alright."
+            content += "At least your driving seems alright."
         }
     }
-    if (msg.content.toLowerCase().includes('dress')) {
+
+    // Images
+    if (key.includes('dress')) {
         attach = new Discord.Attachment("generates/dress.png")
-    }
-    else if (msg.content.toLowerCase().includes('nissan')) {
+    } else if (key.includes('nissan')) {
         attach = new Discord.Attachment("generates/nissan.png")
     }
-    if(content.length > 0 || attach != null) {
+
+    // Reply if there's something to reply with
+    if (content.length > 0 || attach != null) {
         msg.reply(content, file = attach);
     }
 });

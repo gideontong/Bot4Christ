@@ -13,7 +13,7 @@ bot.on("ready", function () {
     })
 });
 
-bot.on('message', msg => {
+/*bot.on('message', msg => {
     if (msg.content.toLowerCase().includes('i love you')) {
         msg.reply('i love paul too');
     }
@@ -37,4 +37,4 @@ bot.on('message', msg => {
         attach = new Discord.Attachment("generates/nissan.png")
         msg.channel.send(attach)
     }
-});
+});*/

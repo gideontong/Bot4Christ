@@ -17,13 +17,20 @@ bot.on('message', msg => {
     content = "";
     var attach;
     if (msg.content.toLowerCase().includes('i love you')) {
-        if(msg.author.username == "pyu"){
+        if(msg.author.username == "pyu") {
             content += "LOVE YOU TOO :heart: :heart_eyes: :heartpulse:";
         } else {
             content += "I love Paul, did you know that!?";
         }
     } else if (msg.content.toLowerCase().includes('paul is')) {
-        msg.reply('I don\'t have any time for any gossip now');
+        content += 'I don\'t have any time for any gossip now'
+    }
+    if (msg.content.toLowerCase().includes('in a car')) {
+        if(msg.author.username == "pyu") {
+            content += "\nYour driving isn't safe, though..."
+        } else {
+            content += "\nAt least your driving seems alright."
+        }
     }
     if (msg.content.toLowerCase().includes('dress')) {
         attach = new Discord.Attachment("generates/dress.png")

@@ -8,7 +8,7 @@ module.exports = async msg => {
     const args = msg.content.split(` `);
     const command = args.shift().slice(config.prefix.length);
     let cmdFile = require(`../../commands/${command}.js`);
-    console.log(`[COMMAND] The command ${command} has been executed by ${msg.author.tag} in ${msg.guild.name}`)
+    console.log(`[Command] The command ${command} has been executed by ${msg.author.tag} in ${msg.guild.name}`)
     if (!cmdFile) {
         return;
     }
@@ -24,8 +24,8 @@ module.exports = async msg => {
 
             msg.channel.send(error)
             
-            console.error(`[ERROR] The following error ID is ` + id)
-            console.error(`[ERROR] On execution of ` + command + ` in ` + msg.guild.name + `, something went wrong: ` + err)
+            console.error(`[Error] The following error ID is ` + id)
+            console.error(`[Error] On execution of ` + command + ` in ` + msg.guild.name + `, something went wrong: ` + err)
         });    
     }
 };

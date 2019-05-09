@@ -1,1 +1,60 @@
-var _0x490d=['in\x20a\x20car','\x0a\x20Psst...','Your\x20driving\x20isn\x27t\x20safe,\x20though...','samuel','HEY\x20STOP\x20TEXTING\x20AND\x20DRIVING...\x20oh\x20wait,\x20you\x27re\x20not\x20Paul.\x20Carry\x20on\x20;)','At\x20least\x20your\x20driving\x20seems\x20alright.','dress','Attachment','generates/dress.png','nissan','generates/nissan.png','reply','../config.json','exports','author','username','user','content','toLowerCase','includes','i\x20love\x20you','discriminator','usernames','paul','not\x20that\x20bad','You\x20sure\x20about\x20that?\x20It\x27s\x20pretty\x20bad','paul\x20is','I\x20don\x27t\x20have\x20any\x20time\x20for\x20any\x20gossip\x20now','emma\x20','length','\x0a\x20And\x20'];(function(_0x378d03,_0x2552a3){var _0x182971=function(_0x1abf0f){while(--_0x1abf0f){_0x378d03['push'](_0x378d03['shift']());}};_0x182971(++_0x2552a3);}(_0x490d,0x161));var _0xceec=function(_0x445cf3,_0x1dca39){_0x445cf3=_0x445cf3-0x0;var _0x4188bb=_0x490d[_0x445cf3];return _0x4188bb;};const config=require(_0xceec('0x0'));module[_0xceec('0x1')]=_0xe884da=>{_0xe884da['on']('message',_0x4534d8=>{if(_0x4534d8[_0xceec('0x2')][_0xceec('0x3')]==_0xe884da[_0xceec('0x4')]['tag']){return;}content='';var _0xdbc588;key=_0x4534d8[_0xceec('0x5')][_0xceec('0x6')]();if(key[_0xceec('0x7')](_0xceec('0x8'))){if(_0x4534d8[_0xceec('0x2')][_0xceec('0x9')]==config[_0xceec('0xa')][_0xceec('0xb')]){content+='LOVE\x20YOU\x20TOO\x20:heart:\x20:heart_eyes:\x20:heartpulse:';}else{content+='I\x20love\x20Paul,\x20did\x20you\x20know\x20that!?';}}else if(key[_0xceec('0x7')](_0xceec('0xc'))){content+=_0xceec('0xd');}else if(key[_0xceec('0x7')](_0xceec('0xe'))){content+=_0xceec('0xf');}if(key[_0xceec('0x7')](_0xceec('0x10'))&&_0x4534d8[_0xceec('0x2')]['discriminator']==config['usernames'][_0xceec('0xb')]){if(content[_0xceec('0x11')]>0x0){content+=_0xceec('0x12');}content+='Paul,\x20stop\x20talking\x20about\x20me!\x20:blush:';}if(key[_0xceec('0x7')](_0xceec('0x13'))||key[_0xceec('0x7')]('in\x20the\x20car')){if(content[_0xceec('0x11')]>0x0){content+=_0xceec('0x14');}if(_0x4534d8[_0xceec('0x2')][_0xceec('0x9')]==config[_0xceec('0xa')][_0xceec('0xb')]){content+=_0xceec('0x15');}else if(_0x4534d8['author'][_0xceec('0x9')]==config[_0xceec('0xa')][_0xceec('0x16')]){content+=_0xceec('0x17');}else{content+=_0xceec('0x18');}}if(key[_0xceec('0x7')](_0xceec('0x19'))){_0xdbc588=new Discord[(_0xceec('0x1a'))](_0xceec('0x1b'));}else if(key[_0xceec('0x7')](_0xceec('0x1c'))){_0xdbc588=new Discord[(_0xceec('0x1a'))](_0xceec('0x1d'));}if(content[_0xceec('0x11')]>0x0||_0xdbc588!=null){_0x4534d8[_0xceec('0x1e')](content,file=_0xdbc588);}});};
+const config = require("../config.json");
+
+module.exports = bot => {
+    bot.on('message', msg => {
+        if (msg.author.username == bot.user.tag) {
+            return
+        }
+
+        content = "";
+        var attach;
+        key = msg.content.toLowerCase(); // The message in all lowercase
+
+        // I love you, not that bad, and Paul is
+        if (key.includes('i love you')) {
+            if (msg.author.discriminator == config.usernames.paul) {
+                content += "LOVE YOU TOO :heart: :heart_eyes: :heartpulse:";
+            } else {
+                content += "I love Paul, did you know that!?";
+            }
+        } else if (key.includes('not that bad')) {
+            content += 'You sure about that? It\'s pretty bad'
+        } else if (key.includes('paul is')) {
+            content += 'I don\'t have any time for any gossip now'
+        }
+
+        // When Paul is talking about Emma
+        if (key.includes('emma ') && msg.author.discriminator == config.usernames.paul) {
+            if (content.length > 0) {
+                content += "\n And "
+            }
+            content += "Paul, stop talking about me! :blush:"
+        }
+
+        // Cars
+        if (key.includes('in a car') || key.includes('in the car')) {
+            if (content.length > 0) {
+                content += "\n Psst..."
+            }
+            if (msg.author.discriminator == config.usernames.paul) {
+                content += "Your driving isn't safe, though..."
+            } else if (msg.author.discriminator == config.usernames.samuel) {
+                content += "HEY STOP TEXTING AND DRIVING... oh wait, you're not Paul. Carry on ;)"
+            } else {
+                content += "At least your driving seems alright."
+            }
+        }
+
+        // Images
+        if (key.includes('dress')) {
+            attach = new Discord.Attachment("generates/dress.png")
+        } else if (key.includes('nissan')) {
+            attach = new Discord.Attachment("generates/nissan.png")
+        }
+
+        // Reply if there's something to reply with
+        if (content.length > 0 || attach != null) {
+            msg.reply(content, file = attach);
+        }
+    });
+}

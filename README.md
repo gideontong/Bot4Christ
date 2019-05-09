@@ -7,7 +7,8 @@ All descriptions assume the command prefix is !, but the exclamation point can b
 ## Current Features
 
 1. **Pingable Bot** Ping the bot using `!hello` to get a reply back.
-2. **QR Code Generator** Generate a QR code by typing `!qr [text]` and receive a QR code with the text contained within.
+2. **Verse Finder** Use `!verse [verse]` to find a specific verse from the King James Bible.
+3. **QR Code Generator** Generate a QR code by typing `!qr [text]` and receive a QR code with the text contained within.
 
 ## Planned Features
 

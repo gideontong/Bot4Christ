@@ -6,29 +6,34 @@ const kjv = require("./kjv-books.json");
 
 module.exports = async (bot, msg, args) => {
     const embed = new Discord.Message()
+    var book, bookName, finns;
 
-    if (args.length != 2) {
+    if (args.length < 2 || args.length > 3) {
         console.log("[Error] Bible verse wasn't actually a verse.");
         msg.reply("Are you really looking for a verse?");
         return;
+    } else if (args.length == 3) {
+        bookName = args[0] + " " + args[1];
+        finns = args[2].split(":");
+    } else {
+        bookName = args[0];
+        finns = args[1].split(":");
     }
 
-    var book;
+    console.log("[Command] The bookname of the verse Gideon is looking for is " + bookName);
 
     for (var i = 0; i < kjv.data.length; i++) {
-        if (args[0] == kjv.data[i].name) {
+        if (bookName == kjv.data[i].name) {
             book = kjv.data[i].id;
             continue;
         }
     }
 
-    if (book.length == 0) {
+    if (book == null) {
         console.log("[Error] Bible verse wasn't actually a verse.");
         msg.reply("Are you sure that was a book?");
         return;
     }
-
-    var finns = args[1].split(":");
 
     var options = {
         method: 'GET',
@@ -47,7 +52,7 @@ module.exports = async (bot, msg, args) => {
 
             verse = info.data.content.replace(/(<([^>]+)>)/ig, ""); // Get rid of HTTP tags
             verse = verse.substring(finns[1].length, verse.length); // Get rid of verse header
-            if(verse.substring(0, 1) == "¶") {
+            if (verse.substring(0, 1) == "¶") {
                 verse = verse.substring(2, verse.length);
             }
 

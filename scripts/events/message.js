@@ -16,7 +16,7 @@ module.exports = async msg => {
         cmdFile(bot, msg, args).catch(err => {
             id = makeid(10)
             const error = new Discord.RichEmbed()
-                .setTitle(command)
+                .setTitle("Error running " + command)
                 .setDescription(`Sorry about this!`)
                 .addField(`The error code is `, "```" + id + "```", false)
                 .setFooter(`Contact Gideon#5433 with this error message to get it fixed!`)

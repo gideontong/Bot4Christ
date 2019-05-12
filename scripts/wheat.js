@@ -1,9 +1,9 @@
 const Discord = require("discord.js");
-const config = require("../config.json");
+const config = require("../config/config.json");
 
 module.exports = bot => {
     bot.on('message', msg => {
-        if (msg.author.username == bot.user.tag) {
+        if (msg.author.bot) {
             return
         }
 
@@ -32,8 +32,7 @@ module.exports = bot => {
             content += "Paul, stop talking about me! :blush:"
         }
 
-        // Cars
-        if (key.includes('in a car') || key.includes('in the car')) {
+        if (key.includes('in ') || key.includes(' car')) {
             if (content.length > 0) {
                 content += "\n Psst..."
             }

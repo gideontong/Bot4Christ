@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 var QRCode = require('qrcode')
-const config = require("../config.json");
 
 module.exports = async (bot, msg, args) => {
     // console.log(msg.content)

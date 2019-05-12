@@ -1,11 +1,10 @@
 // KJV: de4e12af7f28f599-01
 const Discord = require("discord.js");
 const request = require('request');
-const config = require("../config.json");
-const kjv = require("./kjv-books.json");
+const config = require("../config/config.json");
+const kjv = require("../config/kjv-books.json");
 
 module.exports = async (bot, msg, args) => {
-    const embed = new Discord.Message()
     var book, bookName, finns;
 
     if (args.length < 2 || args.length > 3) {
@@ -57,7 +56,7 @@ module.exports = async (bot, msg, args) => {
             }
 
             const embed = new Discord.RichEmbed()
-                .setAuthor(bot.user.username, bot.user.avatarURL)
+                .setAuthor("Bible (KJV)", config.imageURLs.bible)
                 .setDescription(verse)
                 .setFooter(info.data.reference)
                 .setColor(0x5998c5)

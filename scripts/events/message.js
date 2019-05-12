@@ -1,4 +1,4 @@
-const config = require('../../config.json');
+const config = require('../../config/config.json');
 const Discord = require('discord.js');
 
 module.exports = async msg => {
@@ -19,7 +19,7 @@ module.exports = async msg => {
                 .setTitle("Error running " + command)
                 .setDescription(`Sorry about this!`)
                 .addField(`The error code is `, "```" + id + "```", false)
-                .setFooter(`Contact Gideon#5433 with this error message to get it fixed!`)
+                .setFooter(`Contact Gideon#5433 with this error to get it fixed!`)
                 .setColor(0xf45c42)
 
             msg.channel.send(error)

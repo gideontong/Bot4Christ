@@ -1,6 +1,6 @@
 {
   "name": "A4CDiscord",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "This is a specialized Discord bot for the Chinese Christian Church of Thousand Oaks's Act4Christ youth group Discord server. It includes moderation queue features as well as empowers people to read the Bible",
   "main": "index.js",
   "scripts": {
@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/gideontong/A4CDiscord",
   "dependencies": {
-    "discord.js": "^11.4.2",
+    "discord.js": "^11.5.0",
     "qrcode": "^1.3.3",
     "request": "^2.88.0"
   }

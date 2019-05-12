@@ -1,11 +1,14 @@
 {
     "token": "",
     "bibleapi": "",
-    "version": "1.1.7",
+    "version": "1.1.8",
     "prefix": "!",
     "branch": "master",
     "usernames": {
         "paul": "3604",
         "samuel": "9863"
+    },
+    "imageURLs": {
+        "bible": "https://i.imgur.com/s8Y3ful.png"
     }
 }

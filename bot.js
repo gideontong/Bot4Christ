@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client();
 
-const config = require("./config.json");
+const config = require("./config/config.json");
 bot.login(config.token);
 
 require("./scripts/events.js")(bot);

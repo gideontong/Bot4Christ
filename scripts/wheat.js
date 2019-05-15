@@ -18,6 +18,7 @@ module.exports = bot => {
             } else {
                 content += "I love Paul, did you know that!?";
             }
+            console.log(`[Easter Egg] Love message triggered by ${msg.author.tag}!`);
         } else if (key.includes('not that bad')) {
             content += 'You sure about that? It\'s pretty bad'
         } else if (key.includes('paul is')) {
@@ -32,7 +33,8 @@ module.exports = bot => {
             content += "Paul, stop talking about me! :blush:"
         }
 
-        if (key.includes('in ') || key.includes(' car')) {
+        if (key.includes('in ') && key.includes(' car')) {
+            console.log(`[Easter Egg] Driving message triggered by ${msg.author.tag}!`);
             if (content.length > 0) {
                 content += "\n Psst..."
             }

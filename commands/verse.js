@@ -17,9 +17,11 @@ module.exports = async (bot, msg, args) => {
     } else {
         bookName = args[0];
         finns = args[1].split(":");
+        bookName = (bookName == "Psalm") ? "Psalms" : bookName;
+        bookName = bookName.substring(0, 1).toUpperCase() + bookName.substring(1, bookName.length).toLowerCase();
     }
 
-    console.log("[Command] The bookname of the verse Gideon is looking for is " + bookName);
+    console.log(`[Command] The bookname of the verse ${msg.member.nickname} is looking for is ` + bookName);
 
     for (var i = 0; i < kjv.data.length; i++) {
         if (bookName == kjv.data[i].name) {

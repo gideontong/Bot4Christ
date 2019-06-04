@@ -21,7 +21,7 @@ process.on('uncaughtException', function (err) {
 bot.on("ready", function () {
     console.log('[Info] The Discord bot has begun startup...')
     console.log(`[Info] Connected to Discord as: ${bot.user.tag} with the id: ${bot.user.id}! Prefix: ${config.prefix}, branch: ${config.branch}, version: ${config.version}`)
-    bot.user.setActivity('Puma Pants', { type: 'WATCHING' })
+    bot.user.setActivity('people take my photo', { type: 'WATCHING' })
         .then(presence => console.log(`[Info] Activity set to ${presence.game ? presence.game.name : 'none'}`))
         .catch(console.error);
     require('child_process').exec('cd dashboard && node WebServer.js', (err, stdout, stderr) => {

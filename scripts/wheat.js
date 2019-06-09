@@ -114,8 +114,8 @@ module.exports = bot => {
             console.log(`[Easter Egg] An easter egg has been triggered by ${msg.author.tag}!`)
             msg.reply(content, file = attach);
         } else if (msg.author.discriminator == config.usernames.paul) {
-            x = Math.floor(Math.random() * 100)
-            if (x <= 55) {
+            x = Math.floor(Math.random() * 500)
+            if (x <= 80) {
                 console.log(`[Easter Egg] No easter egg was triggered, but Paul talked so a response was generated.`)
                 msg.reply(responses.responses[x])
             }

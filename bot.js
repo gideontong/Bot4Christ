@@ -6,7 +6,13 @@ const config = require("./config/config.json");
 bot.login(config.token);
 
 require("./scripts/events.js")(bot);
-require("./scripts/wheat.js")(bot);
+
+/* 
+ * On 2019 Jun 8 all Easter Eggs were disabled, including ones that may include
+ * trolls with Paul. It has been a good run, but I do appreciate the feedback
+ * that I recieved from it!
+ */
+// require("./scripts/wheat.js")(bot);
 
 /*
 var timestamp = new Date().toISOString().replace("T", "-").replace(/[:]/g, "-").substring(0, 19);
@@ -21,7 +27,7 @@ process.on('uncaughtException', function (err) {
 bot.on("ready", function () {
     console.log('[Info] The Discord bot has begun startup...')
     console.log(`[Info] Connected to Discord as: ${bot.user.tag} with the id: ${bot.user.id}! Prefix: ${config.prefix}, branch: ${config.branch}, version: ${config.version}`)
-    bot.user.setActivity('people take my photo', { type: 'WATCHING' })
+    bot.user.setActivity('the throne of God', { type: 'WATCHING' })
         .then(presence => console.log(`[Info] Activity set to ${presence.game ? presence.game.name : 'none'}`))
         .catch(console.error);
     require('child_process').exec('cd dashboard && node WebServer.js', (err, stdout, stderr) => {

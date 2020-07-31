@@ -1,7 +1,9 @@
+const config = require("./config/config.json");
+
 const Discord = require("discord.js");
+const log4js = require('log4js');
 const bot = new Discord.Client();
 
-const config = require("./config/config.json");
 bot.login(config.token);
 
 require("./scripts/events.js")(bot);

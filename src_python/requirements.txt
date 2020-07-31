@@ -1,3 +1,0 @@
-
-discord==0.16.12
-qrcode==6.1

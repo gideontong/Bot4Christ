@@ -1,10 +1,11 @@
 // KJV: de4e12af7f28f599-01
 const Discord = require("discord.js");
-const request = require('request');
+// const request = require('request');
 const config = require("../config/config.json");
 const kjv = require("../config/kjv-books.json");
 
 module.exports = async (bot, msg, args) => {
+    /*
     var book, bookName, finns;
 
     if (args.length < 2 || args.length > 3) {
@@ -70,4 +71,5 @@ module.exports = async (bot, msg, args) => {
 
     });
     // msg.reply("I tried, but...")
+    */
 }

@@ -1,18 +1,23 @@
 {
-  "name": "A4CDiscord",
+  "name": "a4cdiscord",
   "version": "1.1.11",
   "description": "This is a specialized Discord bot for the Chinese Christian Church of Thousand Oaks's Act4Christ youth group Discord server. It includes moderation queue features as well as empowers people to read the Bible",
-  "main": "index.js",
+  "main": "bot.js",
   "scripts": {
+    "start": "node bot.js",
     "dev": "node bot.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gideontong/A4CDiscord.git"
+    "url": "https://github.com/gideontong/A4CDiscord.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "Christian",
+    "Discord",
+    "bot"
+  ],
+  "author": "Gideon Tong <gideon@gideontong.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/gideontong/A4CDiscord/issues"
@@ -21,5 +26,8 @@
   "dependencies": {
     "discord.js": "^11.5.0",
     "qrcode": "^1.3.3"
+  },
+  "devDependencies": {
+    "jest": "^26.2.1"
   }
 }

@@ -1,28 +1,10 @@
 const Discord = require("discord.js");
-var fs = require('fs');
 const bot = new Discord.Client();
 
 const config = require("./config/config.json");
 bot.login(config.token);
 
 require("./scripts/events.js")(bot);
-
-/* 
- * On 2019 Jun 8 all Easter Eggs were disabled, including ones that may include
- * trolls with Paul. It has been a good run, but I do appreciate the feedback
- * that I recieved from it!
- */
-// require("./scripts/wheat.js")(bot);
-
-/*
-var timestamp = new Date().toISOString().replace("T", "-").replace(/[:]/g, "-").substring(0, 19);
-var access = fs.createWriteStream('/logs/' + timestamp + '.log');
-process.stdout.write = process.stderr.write = access.write.bind(access);
-
-process.on('uncaughtException', function (err) {
-    console.error((err && err.stack) ? err.stack : err);
-});
-*/
 
 bot.on("ready", function () {
     console.log('[Info] The Discord bot has begun startup...')

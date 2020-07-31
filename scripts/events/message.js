@@ -1,4 +1,5 @@
 const config = require('../../config/config.json');
+const log = require('log4js').getLogger('church');
 const Discord = require('discord.js');
 
 module.exports = async msg => {
@@ -18,7 +19,7 @@ module.exports = async msg => {
 
         msg.reply(error)
     }
-    console.log(`[Command] The command ${command} has been executed by ${msg.author.tag} in ${msg.guild.name}`)
+    log.info(`The command ${command} has been executed by ${msg.author.tag} in ${msg.guild.name}`)
     if (!cmdFile) {
         return;
     }
@@ -34,8 +35,8 @@ module.exports = async msg => {
 
             msg.channel.send(error)
 
-            console.error(`[Error] The following error ID is ` + id)
-            console.error(`[Error] On execution of ` + command + ` in ` + msg.guild.name + `, something went wrong: ` + err)
+            log.error(`The following error ID is ` + id)
+            log.error(`On execution of ` + command + ` in ` + msg.guild.name + `, something went wrong: ` + err)
         });
     }
 };

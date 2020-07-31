@@ -4,17 +4,39 @@ const Discord = require("discord.js");
 const log4js = require('log4js');
 const bot = new Discord.Client();
 
+function genLog() {
+    let date = new Date();
+    return date.getFullYear() + "." + date.getMonth() + "." + date.getDate() + "." +
+        date.getHours() + "." + date.getMinutes() + "." + date.getSeconds() + ".log";
+}
+
+log4js.configure({
+    appenders: {
+        console: {
+            type: 'console'
+        },
+        file: {
+            type: 'file',
+            filename: `logs/${genLog()}`
+        }
+    },
+    categories: {
+        default: {
+            appenders: ['console', 'file'],
+            level: 'info'
+        }
+    }
+});
+const log = log4js.getLogger('church');
+
 bot.login(config.token);
 
 require("./scripts/events.js")(bot);
 
 bot.on("ready", function () {
-    console.log('[Info] The Discord bot has begun startup...')
-    console.log(`[Info] Connected to Discord as: ${bot.user.tag} with the id: ${bot.user.id}! Prefix: ${config.prefix}, branch: ${config.branch}, version: ${config.version}`)
+    log.info(`The bot has begun startup as ${bot.user.tag} on prefix ${config.prefix}`);
+    log.info(`Additional information, branch: ${config.branch} and version ${config.version}`);
     bot.user.setActivity('the throne of God', { type: 'WATCHING' })
-        .then(presence => console.log(`[Info] Activity set to ${presence.game ? presence.game.name : 'none'}`))
-        .catch(console.error);
-    require('child_process').exec('cd dashboard && node WebServer.js', (err, stdout, stderr) => {
-        // stdout.write = stderr.write = access.write.bind(access);
-    })
+        .then(presence => log.info(`Activity set to ${presence.game ? presence.game.name : 'none'}`))
+        .catch(log.error);
 });

@@ -7,13 +7,13 @@ import json
 import sys
 
 file = sys.argv[1] + '.xml' if len(sys.argv) > 1 else 'AKJV.xml'
-soup = BeautifulSoup(open(file).read(), 'lxml')
+soup = BeautifulSoup(open(file, encoding='utf-8').read(), 'lxml')
 bible = {
     "meta": {
-        "version": "AKJV",
-        "fullname": "American King James Version",
-        "language": "en",
-        "date": 1999,
+        "version": "CUV",
+        "fullname": "Chinese Union Version (Traditional)",
+        "language": "zh",
+        "date": 1919,
         "copyright": "Public Domain"
     },
     "bible": {

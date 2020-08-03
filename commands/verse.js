@@ -75,7 +75,10 @@ function parseVerse(query) {
  */
 function parseSingleVerse(query) {
     let verse = [];
-    if (query.length < 2 || query.length > 3) return false;
+    if (query.length < 2 || query.length > 5) return false;
+    if (query.length > 3) {
+        query[0] = query.shift() + ' ' + query.shift() + ' ' + query[0];
+    }
     // Combine possible book name into one element
     if (query.length == 3 && !(parseInt(query[1]) && parseInt(query[2]))) {
         let possibleNumber = parseInt(query.shift());
@@ -84,7 +87,7 @@ function parseSingleVerse(query) {
     // Force potential book name to correct capitalization
     let lowercaseBook = query[0].toLowerCase().split(' ');
     for (var i = 0; i < lowercaseBook.length; i++) {
-        if (lowercase[i] == 'of') continue;
+        if (lowercaseBook[i] == 'of') continue;
         lowercaseBook[i] = lowercaseBook[i].charAt(0).toUpperCase() + lowercaseBook[i].substring(1);
     }
     query[0] = lowercaseBook.join(' ');

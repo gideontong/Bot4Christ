@@ -10,10 +10,10 @@ file = sys.argv[1] + '.xml' if len(sys.argv) > 1 else 'AKJV.xml'
 soup = BeautifulSoup(open(file, encoding='utf-8').read(), 'lxml')
 bible = {
     "meta": {
-        "version": "CUV",
-        "fullname": "Chinese Union Version (Traditional)",
-        "language": "zh",
-        "date": 1919,
+        "version": "YLT",
+        "fullname": "Young's Literal Translation",
+        "language": "en",
+        "date": 1862,
         "copyright": "Public Domain"
     },
     "bible": {

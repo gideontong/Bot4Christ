@@ -39,7 +39,7 @@ function parseVerse(query) {
         return false;
     }
     // TODO: Get the version code
-    bibleData = ['KJV'];
+    bibleData = ['CUV'];
     if (query.includes('-')) {
         let splitLocation = query.findIndex('-');
         let left = parseSingleVerse(query.slice(0, splitLocation));

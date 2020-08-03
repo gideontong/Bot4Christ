@@ -48,7 +48,7 @@ module.exports = async msg => {
             .setFooter(`${bot.user.username} might be going crazy...`)
             .setColor(0x2980b9);
         msg.channel.send(error);
-        log.error(err);
+        log.warn(`${msg.author.tag} tried to run command ${command}`);
         return;
     }
     if (cmdFile) {

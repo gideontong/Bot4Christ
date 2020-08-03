@@ -30,11 +30,10 @@ module.exports = async msg => {
             .setColor(0xf45c42);
 
         msg.channel.send(error);
+        return;
     }
     log.info(`The command ${command} has been executed by ${msg.author.tag} in ${msg.guild.name}`)
-    if (!cmdFile) {
-        return;
-    } else {
+    if (cmdFile) {
         cmdFile(bot, msg, args).catch(err => {
             const error = new MessageEmbed()
                 .setTitle("Error running " + command)

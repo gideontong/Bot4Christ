@@ -1,7 +1,7 @@
 const { prefix } = require("../config/config.json");
 const Discord = require("discord.js");
 
-module.exports = async(bot, msg, args) => {
+module.exports = async (bot, msg, args) => {
     const embed = new Discord.MessageEmbed()
         .setAuthor(bot.user.username, bot.user.avatarURL)
         .setDescription(`Need a bit of help? ${bot.user.username} is here to help you!`)

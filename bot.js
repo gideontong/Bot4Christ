@@ -1,11 +1,15 @@
-const config = require("./config/config.json");
+// Local config files
+const { prefix } = require("./config/config.json");
+const { token } = require('../config/secrets.json');
+
+// Dependencies
 const Discord = require("discord.js");
 const log4js = require('log4js');
 const bot = new Discord.Client();
 
-function genLog() {
+function createLogName() {
     let date = new Date();
-    return date.getFullYear() + "." + date.getMonth() + "." + date.getDate() + "." +
+    return date.getFullYear() + "." + (date.getMonth() + 1) + "." + date.getDate() + "." +
         date.getHours() + "." + date.getMinutes() + "." + date.getSeconds() + ".log";
 }
 
@@ -16,7 +20,7 @@ log4js.configure({
         },
         file: {
             type: 'file',
-            filename: `logs/${genLog()}`
+            filename: `logs/${createLogName()}`
         }
     },
     categories: {
@@ -28,14 +32,13 @@ log4js.configure({
 });
 const log = log4js.getLogger('church');
 
-bot.login(config.token);
-
 require("./events.js")(bot);
 
 bot.on("ready", function () {
-    log.info(`The bot has begun startup as ${bot.user.tag} on prefix ${config.prefix}`);
-    log.info(`Additional information, branch: ${config.branch} and version ${config.version}`);
+    log.info(`The bot has begun startup as ${bot.user.tag} on prefix ${prefix}`);
     bot.user.setActivity('the throne of God', { type: 'WATCHING' })
-        .then(presence => log.info(`Activity set to ${presence.game ? presence.game.name : 'none'}`))
-        .catch(log.error);
+    .then(presence => log.info(`Activity set to ${presence.activites[0].type} ${presence.activities.toString()}`))
+    .catch(log.error);
 });
+
+bot.login(token);

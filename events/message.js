@@ -13,7 +13,7 @@ module.exports = async msg => {
     try {
         cmdFile = require(`../commands/${command}.js`);
     } catch {
-        const error = new Discord.RichEmbed()
+        const error = new Discord.MessageEmbed()
             .setTitle(`Hey, ${prefix}` + command + " isn't a command!")
             .setDescription(`Sorry about this! If you were told it's a command, please contact Gideon#5433 for more help! If you think it should be a command, contact him anyways!`)
             .setFooter(`${bot.user.username} might be going crazy...`)
@@ -28,7 +28,7 @@ module.exports = async msg => {
     if (cmdFile) {
         cmdFile(bot, msg, args).catch(err => {
             id = makeid(10)
-            const error = new Discord.RichEmbed()
+            const error = new Discord.MessageEmbed()
                 .setTitle("Error running " + command)
                 .setDescription(`Sorry about this!`)
                 .addField(`The error code is `, "```" + id + "```", false)

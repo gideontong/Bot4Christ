@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const config = require("../config/config.json");
 
 module.exports = async(bot, msg, args) => {
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
         .setAuthor(bot.user.username, bot.user.avatarURL)
         .setDescription(`Need a bit of help? ${bot.user.username} is here to help you!`)
         .addField(`To find out more about this bot... try`, `\`${config.prefix}about\``, false)

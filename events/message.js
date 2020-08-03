@@ -20,7 +20,7 @@ module.exports = async msg => {
         log.info(`${msg.author.tag} tried to send me a DM`);
         msg.channel.send(disallow);
         return;
-    } else if (permissions.commands.admin.includes(command) && (!permissions.admins.includes(msg.author) || msg.member.hasPermission('ADMINISTRATOR'))) {
+    } else if (permissions.commands.admin.includes(command) && (!permissions.admins.includes(msg.author.id) || msg.member.hasPermission('ADMINISTRATOR'))) {
         const disallow = new MessageEmbed()
             .setTitle("You're not allowed to do that!")
             .setDescription(`Nuh uh uh! You have to be an admin to do that. Think this command shouldn't require admin permission? Maybe you thought you had admin powers? Contact [Gideon Tong](${links.contact}) to get this resolved.`)
@@ -29,7 +29,7 @@ module.exports = async msg => {
         log.info(`${msg.author.tag} tried to run ${command} without admin permissions`);
         msg.channel.send(disallow);
         return;
-    } else if (permissions.commands.upcoming.includes(command) && !permissions.admins.includes(msg.author)) {
+    } else if (permissions.commands.upcoming.includes(command) && !permissions.admins.includes(msg.author.id)) {
         const disallow = new MessageEmbed()
             .setTitle("That's coming soon...")
             .setDescription("Try again later, Gideon is still working on this feature...")
@@ -37,6 +37,7 @@ module.exports = async msg => {
             .setColor(0xf1c40f);
         log.info(`${msg.author.tag} tried to run upcoming command ${command}`);
         msg.channel.send(disallow);
+        return;
     }
     try {
         cmdFile = require(`../commands/${command}.js`);

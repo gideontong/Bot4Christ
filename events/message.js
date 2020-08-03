@@ -27,17 +27,16 @@ module.exports = async msg => {
     }
     if (cmdFile) {
         cmdFile(bot, msg, args).catch(err => {
-            id = makeid(10)
             const error = new Discord.MessageEmbed()
                 .setTitle("Error running " + command)
                 .setDescription(`Sorry about this!`)
-                .addField(`The error code is `, "```" + id + "```", false)
+                .addField(`The error code is `, "```" + 1 + "```", false)
                 .setFooter(`Contact Gideon#5433 with this error to get it fixed!`)
                 .setColor(0xf45c42)
 
             msg.channel.send(error)
 
-            log.error(`The following error ID is ` + id)
+            log.error(`The following error ID is ` + 1)
             log.error(`On execution of ` + command + ` in ` + msg.guild.name + `, something went wrong: ` + err)
         });
     }

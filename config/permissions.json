@@ -1,0 +1,17 @@
+{
+    "admins": [
+        "132525049977503744"
+    ],
+    "commands": {
+        "admin": [
+        ],
+        "upcoming": [
+            "about",
+            "hello",
+            "help",
+            "qr",
+            "repeat",
+            "snowflake"
+        ]
+    }
+}

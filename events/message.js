@@ -8,6 +8,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = async msg => {
     if (msg.author.bot || !msg.content.startsWith(prefix)) return;
+    const bot = msg.client;
     if (msg.channel.type == 'dm') {
         const disallow = new MessageEmbed()
             .setTitle("I'm not listening to DMs yet!")
@@ -16,7 +17,6 @@ module.exports = async msg => {
             .setColor(0xc0392b);
         msg.channel.send(disallow);
     }
-    const bot = msg.client;
     const args = msg.content.split(` `);
     const command = args.shift().slice(prefix.length);
     try {

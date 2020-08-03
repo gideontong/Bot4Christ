@@ -1,6 +1,8 @@
 {
     "availableVersions": [
-        "NIV"
+        "NIV",
+        "NIV2011"
     ],
-    "NIV": "NIV.json"
+    "NIV": "NIV.json",
+    "NIV2011": "NIV.json"
 }

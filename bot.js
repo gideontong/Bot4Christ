@@ -5,7 +5,7 @@ const { token } = require('./config/secrets.json');
 // Dependencies
 const Discord = require('discord.js');
 const log4js = require('log4js');
-const bot = new Discord.Client();
+const client = new Discord.Client();
 
 function createLogName() {
     let date = new Date();
@@ -32,13 +32,13 @@ log4js.configure({
 });
 const log = log4js.getLogger('church');
 
-require('./events.js')(bot);
+require('./events.js')(client);
 
-bot.on('ready', () => {
-    log.info(`The bot has begun startup as ${bot.user.tag} on prefix ${prefix}`);
-    bot.user.setActivity('the throne of God', { type: 'WATCHING' })
+client.on('ready', () => {
+    log.info(`The bot has begun startup as ${client.user.tag} on prefix ${prefix}`);
+    client.user.setActivity('the throne of God', { type: 'WATCHING' })
     .then(presence => log.info(`Activity set to ${presence.activites[0].type} ${presence.activities.toString()}`))
     .catch(log.error);
 });
 
-bot.login(token);
+client.login(token);

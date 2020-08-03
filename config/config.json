@@ -1,6 +1,9 @@
 {
     "prefix": "~",
-    "link": "https://discord.gg/WUGMTcZ",
+    "links": {
+        "contact": "https://discord.gg/WUGMTcZ",
+        "featureRequest": "https://github.com/gideontong/Bot4Christ/issues/new?assignees=gideontong&labels=enhancement%2C+help+wanted&template=feature-request.md&title=%5BNEW+COMMAND%5D+My+command+is...+"
+    },
     "activities": [
         {
             "type": "WATCHING",

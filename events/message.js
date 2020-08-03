@@ -56,7 +56,7 @@ module.exports = async msg => {
             const error = new MessageEmbed()
                 .setTitle("Error running " + command)
                 .setDescription(`Sorry about this! It appears something went wrong.`)
-                .setFooter(`Contact Gideon#5433 with this error to get it fixed!`)
+                .setFooter(`Contact Gideon Tong with this error to get it fixed!`)
                 .setColor(0xc0392b);
             msg.channel.send(error);
             log.error(`On execution of ${command} in ${msg.guild.name} (${msg.channel.name}): ${err}`);

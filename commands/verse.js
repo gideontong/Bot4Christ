@@ -42,3 +42,51 @@ module.exports = async (bot, msg, args) => {
         msg.channel.send(errorNotVerse);
     }
 }
+
+/**
+ * Returns [version, StartReference, EndReference] with Reference as [Book, Chapter, Verse]
+ * If invalid query, returns false
+ * @param {str or array[str]} query 
+ */
+function parseVerse(query) {
+    if (typeof query == 'string') {
+        query = query.split(' ');
+    } else if (!Array.isArray(query)) {
+        return false;
+    }
+    // TODO: Get the version code
+    bibleData = ['KJV'];
+    if (query.includes('-')) {
+        let splitLocation = query.findIndex('-');
+        let left = parseSingleVerse(query.slice(0, splitLocation));
+        let right = parseSingleVerse(query.slice(splitLocation + 1));
+        if (left) {
+            bibleData[1] = left;
+            if (right) {
+                bibleData[2] = right;
+            } else {
+                bibleData[2] = left;
+            }
+        } else if (right) {
+            bibleData[1] = right;
+            bibleData[2] = right;
+        } else {
+            return false;
+        }
+    } else {
+        let verse = parseSingleVerse(query);
+        if (verse) {
+            bibleData[1] = verse;
+            bibleData[2] = verse;
+        } else {
+            return false;
+        }
+    }
+}
+
+/**
+ * Figures out the reference for a single verse
+ * @param {array[str]} query 
+ */
+function parseSingleVerse(query) {
+}

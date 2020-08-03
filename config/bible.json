@@ -1,8 +1,10 @@
 {
     "availableVersions": [
+        "KJV",
         "NIV",
         "NIV2011"
     ],
+    "KJV": "KJV.json",
     "NIV": "NIV.json",
     "NIV2011": "NIV.json"
 }

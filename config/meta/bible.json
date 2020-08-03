@@ -1,10 +1,33 @@
 {
     "availableVersions": [
+        "AKJV",
+        "ASV",
+        "BBE",
+        "ENGLISH",
         "KJV",
         "NIV",
-        "NIV2011"
+        "NIV2011",
+        "WEB",
+        "YLT"
     ],
+    "AKJV": "AKJV.json",
+    "ASV": "ASV.json",
+    "BBE": "BBE.json",
+    "CHINESE": "CUVS.json",
+    "CUV": "CUV.json",
+    "CUVS": "CUVS.json",
+    "ENGLISH": "KJV.json",
+    "FRENCH": "LSG.json",
+    "HEBREW": "WLC.json",
     "KJV": "KJV.json",
+    "LSG": "LSG.json",
     "NIV": "NIV.json",
-    "NIV2011": "NIV.json"
+    "NIV2011": "NIV.json",
+    "RVA": "RVA.json",
+    "SPANISH": "RVA.json",
+    "VIET": "VIET.json",
+    "VIETNAMESE": "VIET.json",
+    "WEB": "WEB.json",
+    "WLC": "WLC.json",
+    "YLT": "YLT.json"
 }

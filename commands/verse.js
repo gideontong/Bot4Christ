@@ -2,6 +2,7 @@ const { links } = require('../config/config.json');
 const counts = require('../config/meta/counts.json');
 
 const { MessageEmbed } = require('discord.js');
+const log = require('log4js').getLogger('church');
 
 module.exports = async (bot, msg, args) => {
     const errorNotVerse = new MessageEmbed()
@@ -65,6 +66,7 @@ function parseVerse(query) {
             return false;
         }
     }
+    return bibleData;
 }
 
 /**
@@ -89,7 +91,7 @@ function parseSingleVerse(query) {
     }
     query[0] = lowercaseBook.join(' ');
     // Check if book exists
-    if (counts.includes(query[0])) {
+    if (Object.keys(counts).includes(query[0])) {
         verse[0] = query[0];
     } else {
         return false;
@@ -102,7 +104,8 @@ function parseSingleVerse(query) {
         if (!bibleChapter || bibleChapter > Object.keys(counts[verse[0]]).length) return false;
         if (!bibleVerse) return false;
         else if (bibleVerse > counts[verse[0]][bibleChapter]) bibleVerse = counts[verse[0]][bibleChapter];
-        query.concat([bibleChapter, bibleVerse]);
+        verse[1] = bibleChapter;
+        verse[2] = bibleVerse;
     }
-    return query;
+    return verse;
 }

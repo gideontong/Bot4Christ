@@ -37,8 +37,8 @@ require('./events.js')(client);
 client.on('ready', () => {
     log.info(`The bot has begun startup as ${client.user.tag} on prefix ${prefix}`);
     client.user.setActivity('the throne of God', { type: 'WATCHING' })
-    .then(presence => log.info(`Activity set to ${presence.activites[0].type} ${presence.activities.toString()}`))
-    .catch(log.error);
+        .then(presence => log.info(`Activity set to ${presence.activities[0].type} ${presence.activities.toString()}`))
+        .catch((error) => log.error(error));
 });
 
 client.login(token);

@@ -6,14 +6,14 @@ from bs4 import BeautifulSoup
 import json
 import sys
 
-file = sys.argv[1] if len(sys.argv) > 1 else 'KJV.xml'
+file = sys.argv[1] + '.xml' if len(sys.argv) > 1 else 'AKJV.xml'
 soup = BeautifulSoup(open(file).read(), 'lxml')
 bible = {
     "meta": {
-        "version": "KJV",
-        "fullname": "King James Version",
+        "version": "AKJV",
+        "fullname": "American King James Version",
         "language": "en",
-        "date": 1611,
+        "date": 1999,
         "copyright": "Public Domain"
     },
     "bible": {
@@ -33,5 +33,5 @@ for book in soup.html.body.xmlbible:
                         bible['bible'][book['bname']][chapter['cnumber']][verse['vnumber']] = verse.string
                         print(book['bname'], chapter['cnumber'], verse['vnumber'])
 
-with open('KJV.json', 'w') as outfile:
+with open(sys.argv[1] + '.json', 'w') as outfile:
     json.dump(bible, outfile)

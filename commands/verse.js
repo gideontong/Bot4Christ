@@ -84,6 +84,7 @@ function parseSingleVerse(query) {
     // Force potential book name to correct capitalization
     let lowercaseBook = query[0].toLowerCase().split(' ');
     for (var i = 0; i < lowercaseBook.length; i++) {
+        if (lowercase[i] == 'of') continue;
         lowercaseBook[i] = lowercaseBook[i].charAt(0).toUpperCase() + lowercaseBook[i].substring(1);
     }
     query[0] = lowercaseBook.join(' ');

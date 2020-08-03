@@ -1,4 +1,5 @@
 const { links } = require('../config/config.json');
+const counts = require('../config/meta/counts.json');
 
 const { MessageEmbed } = require('discord.js');
 
@@ -8,39 +9,21 @@ module.exports = async (bot, msg, args) => {
         .setDescription(`That is positively not a Bible verse, dude... if you think it's a Bible verse and Gideon messed up, please contact [Gideon Tong](${links.contact}) or let me know [here](${links.bugReport}) with a GitHub account.`)
         .setFooter(`${bot.user.username}'s Bible Reader`)
         .setColor(0xe91e63);
-    if (args.length > 3 || args.length < 2) {
+    let bibleData = parseVerse(args);
+    if (!bibleData) {
         msg.channel.send(errorNotVerse);
         return;
-    }
-    if (args.length == 3) {
-        args[0] = args[0] + ' ' + args[1];
-        args.splice(1, 1);
-    }
-    let code = args[1].split(':');
-    if (code.length != 2) {
-        msg.channel.send(errorNotVerse);
-        return;
-    } else {
-        args[1] = parseInt(code[0]);
-        args[2] = parseInt(code[1]);
-        if (!(args[1] && args[2])) {
-            msg.channel.send(errorNotVerse);
-            return;
-        }
     }
     // TODO: Introduce multi version logic
-    const { meta, bible } = require('../config/bibles/KJV.json');
-    if (bible[args[0]] && bible[args[0]][args[1]] && bible[args[0]][args[1]][args[2]]) {
-        const verse = new MessageEmbed()
-            .setAuthor(`${meta.version} Bible`, 'https://img.icons8.com/plasticine/100/000000/holy-bible.png')
-            .setTitle(`${args[0]} ${args[1]}:${args[2]}`)
-            .setDescription(bible[args[0]][args[1]][args[2]])
-            .setFooter(`${bot.user.username}'s Bible Reader`)
-            .setColor(0xffeb3b);
-        msg.channel.send(verse);
-    } else {
-        msg.channel.send(errorNotVerse);
-    }
+    const { meta, bible } = require(`../config/bibles/${bibleData[0]}.json`);
+    // TODO: add verse range support
+    const verse = new MessageEmbed()
+        .setAuthor(`${meta.version} Bible`, 'https://img.icons8.com/plasticine/100/000000/holy-bible.png')
+        .setTitle(`${bibleData[1][0]} ${bibleData[1][1]}:${bibleData[1][2]}`)
+        .setDescription(bible[bibleData[1][0]][bibleData[1][1]][bibleData[1][2]])
+        .setFooter(`${bot.user.username}'s Bible Reader`)
+        .setColor(0xffeb3b);
+    msg.channel.send(verse);
 }
 
 /**
@@ -89,11 +72,37 @@ function parseVerse(query) {
  * @param {array[str]} query 
  */
 function parseSingleVerse(query) {
+    let verse = [];
     if (query.length < 2) return false;
     if (query.length > 3) {
         // TODO: Logic handling for downsizing to correct query length
     }
-    if (query.length == 3) {
-        //
+    // Combine possible book name into one element
+    if (query.length == 3 && !(parseInt(query[1]) && parseInt(query[2]))) {
+        let possibleNumber = parseInt(query.shift());
+        if (possibleNumber) query[0] = possibleNumber + ' ' + query[0];
     }
+    // Force potential book name to correct capitalization
+    let lowercaseBook = query[0].toLowerCase().split(' ');
+    for (var i = 0; i < lowercaseBook.length; i++) {
+        lowercaseBook[i] = lowercaseBook[i].charAt(0).toUpperCase() + lowercaseBook[i].substring(1);
+    }
+    query[0] = lowercaseBook.join(' ');
+    // Check if book exists
+    if (counts.includes(query[0])) {
+        verse[0] = query[0];
+    } else {
+        return false;
+    }
+    // Check if verse exists
+    if (query.length == 2 && query[1].includes(':')) {
+        let bibleCode = query[1].split(':');
+        let bibleChapter = parseInt(bibleCode[0]);
+        let bibleVerse = parseInt(bibleCode[1]);
+        if (!bibleChapter || bibleChapter > Object.keys(counts[verse[0]]).length) return false;
+        if (!bibleVerse) return false;
+        else if (bibleVerse > counts[verse[0]][bibleChapter]) bibleVerse = counts[verse[0]][bibleChapter];
+        query.concat([bibleChapter, bibleVerse]);
+    }
+    return query;
 }

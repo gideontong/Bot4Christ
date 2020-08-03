@@ -1,5 +1,4 @@
 const config = require("./config/config.json");
-
 const Discord = require("discord.js");
 const log4js = require('log4js');
 const bot = new Discord.Client();
@@ -31,7 +30,7 @@ const log = log4js.getLogger('church');
 
 bot.login(config.token);
 
-require("./scripts/events.js")(bot);
+require("./events.js")(bot);
 
 bot.on("ready", function () {
     log.info(`The bot has begun startup as ${bot.user.tag} on prefix ${config.prefix}`);

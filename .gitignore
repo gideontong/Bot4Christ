@@ -1,4 +1,8 @@
+# Generated Files
 .vscode
 logs
 generates
 node_modules
+
+# Sensitive Information
+secrets.json

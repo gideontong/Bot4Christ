@@ -29,7 +29,7 @@ module.exports = async (bot, msg, args) => {
         }
     }
     // TODO: Introduce multi version logic
-    const { meta, bible } = require('../config/bibles/NIV.json');
+    const { meta, bible } = require('../config/bibles/KJV.json');
     if (bible[args[0]] && bible[args[0]][args[1]] && bible[args[0]][args[1]][args[2]]) {
         const verse = new MessageEmbed()
             .setAuthor(`${meta.version} Bible`, 'https://img.icons8.com/plasticine/100/000000/holy-bible.png')

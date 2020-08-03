@@ -75,10 +75,7 @@ function parseVerse(query) {
  */
 function parseSingleVerse(query) {
     let verse = [];
-    if (query.length < 2) return false;
-    if (query.length > 3) {
-        // TODO: Logic handling for downsizing to correct query length
-    }
+    if (query.length < 2 || query.length > 3) return false;
     // Combine possible book name into one element
     if (query.length == 3 && !(parseInt(query[1]) && parseInt(query[2]))) {
         let possibleNumber = parseInt(query.shift());

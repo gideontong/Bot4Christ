@@ -1,5 +1,5 @@
 // Local config files
-const { prefix, activities } = require('./config/config.json');
+const { prefix, activities, activityUpdateInterval } = require('./config/config.json');
 const { token } = require('./config/secrets.json');
 
 // Dependencies
@@ -39,7 +39,7 @@ client.on('ready', () => {
     setInterval(() => {
         const index = Math.floor(Math.random() * activities.length);
         client.user.setActivity(activities[index].text, { type: activities[index].type });
-    }, 10000);
+    }, activityUpdateInterval * 1000);
 });
 
 client.login(token);

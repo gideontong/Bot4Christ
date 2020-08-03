@@ -1,3 +1,13 @@
 {
-    "prefix": "~"
+    "prefix": "~",
+    "activities": [
+        {
+            "type": "WATCHING",
+            "text": "the throne of God"
+        },
+        {
+            "type": "LISTENING",
+            "text": "!help to get started"
+        }
+    ]
 }

@@ -32,7 +32,7 @@ module.exports = async (bot, msg, args) => {
     const { meta, bible } = require('../config/bibles/NIV.json');
     if (bible[args[0]] && bible[args[0]][args[1]] && bible[args[0]][args[1]][args[2]]) {
         const verse = new MessageEmbed()
-            .setAuthor(`${meta.version} Bible`, 'https://i.imgur.com/HgSsNpU.png')
+            .setAuthor(`${meta.version} Bible`, 'https://i.imgur.com/qtyPkqy.png')
             .setTitle(`${args[0]} ${args[1]}:${args[2]}`)
             .setDescription(bible[args[0]][args[1]][args[2]])
             .setFooter(`${bot.user.username}'s Bible Reader`)

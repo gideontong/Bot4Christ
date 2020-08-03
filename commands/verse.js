@@ -89,4 +89,11 @@ function parseVerse(query) {
  * @param {array[str]} query 
  */
 function parseSingleVerse(query) {
+    if (query.length < 2) return false;
+    if (query.length > 3) {
+        // TODO: Logic handling for downsizing to correct query length
+    }
+    if (query.length == 3) {
+        //
+    }
 }

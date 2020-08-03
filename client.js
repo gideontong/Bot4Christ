@@ -1,5 +1,5 @@
 // Local config files
-const { prefix } = require('./config/config.json');
+const { prefix, activities } = require('./config/config.json');
 const { token } = require('./config/secrets.json');
 
 // Dependencies
@@ -36,9 +36,10 @@ require('./events.js')(client);
 
 client.on('ready', () => {
     log.info(`The bot has begun startup as ${client.user.tag} on prefix ${prefix}`);
-    client.user.setActivity('the throne of God', { type: 'WATCHING' })
-        .then(presence => log.info(`Activity set to ${presence.activities[0].type} ${presence.activities.toString()}`))
-        .catch((error) => log.error(error));
+    setInterval(() => {
+        const index = Math.floor(Math.random() * activities.length);
+        client.user.setActivity(activities[index].text, { type: activities[index].type });
+    }, 10000);
 });
 
 client.login(token);

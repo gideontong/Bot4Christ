@@ -1,6 +1,6 @@
 // Local config files
 const { prefix } = require("./config/config.json");
-const { token } = require('../config/secrets.json');
+const { token } = require('./config/secrets.json');
 
 // Dependencies
 const Discord = require("discord.js");

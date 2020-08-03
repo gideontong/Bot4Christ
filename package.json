@@ -4,8 +4,8 @@
   "description": "This is a specialized Discord bot for the Chinese Christian Church of Thousand Oaks's Act4Christ youth group Discord server. It includes moderation queue features as well as empowers people to read the Bible",
   "main": "bot.js",
   "scripts": {
-    "start": "node bot.js",
-    "dev": "node bot.js",
+    "start": "node client.js",
+    "dev": "node client.js",
     "test": "jest"
   },
   "repository": {

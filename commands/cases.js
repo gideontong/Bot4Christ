@@ -1,4 +1,5 @@
 const pandemicIcon = 'https://img.icons8.com/flat_round/128/000000/protection-mask.png';
+const pandemicThumbnail = 'https://emojis.slackmojis.com/emojis/images/1583350348/7963/mask-parrot.gif?1583350348';
 
 const https = require('https');
 const { MessageEmbed } = require('discord.js');
@@ -20,10 +21,11 @@ module.exports = async (bot, msg, args) => {
                 const cases = new MessageEmbed()
                     .setAuthor('Stay home and wear masks!', pandemicIcon)
                     .setTitle(`${bot.user.username} LIVE COVID-19 Tracker`)
+                    .setThumbnail(pandemicThumbnail)
                     .setDescription(`There are currently **${data[0].stats ? data[0].stats.confirmed : 'Unknown'} cases** in Ventura County right now!\n*Additionally...*`)
                     .addField('Deaths', `${data[0].stats ? data[0].stats.deaths : 'Unknown'} Deaths`, true)
                     .addField('Recovered', `${data[0].stats ? data[0].stats.recovered : 'Unknown'} Recovered`, true)
-                    .addField('ICU Beds', `Coming Soon/97 __Currently__ In Use`, false)
+                    .addField('ICU Beds', `0-5 Left, 97 Total`, false)
                     .setFooter(`${bot.user.username}'s data is sourced from Johns Hopkins University.`)
                     .setColor(0x8bc34a);
                 msg.channel.send(cases);

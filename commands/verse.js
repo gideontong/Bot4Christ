@@ -1,4 +1,5 @@
 const { links } = require('../config/config.json');
+const versions = require('../config/meta/bible.json');
 const counts = require('../config/meta/counts.json');
 
 const { MessageEmbed } = require('discord.js');
@@ -15,8 +16,7 @@ module.exports = async (bot, msg, args) => {
         msg.channel.send(errorNotVerse);
         return;
     }
-    // TODO: Introduce multi version logic
-    const { meta, bible } = require(`../config/bibles/${bibleData[0]}.json`);
+    const { meta, bible } = require(`../config/bibles/${versions[bibleData[0]]}`);
     // TODO: add verse range support
     const verse = new MessageEmbed()
         .setAuthor(`${meta.version} Bible`, 'https://img.icons8.com/plasticine/100/000000/holy-bible.png')
@@ -38,8 +38,13 @@ function parseVerse(query) {
     } else if (!Array.isArray(query)) {
         return false;
     }
-    // TODO: Get the version code
-    bibleData = ['CUV'];
+    let possibleVersion = query[query.length - 1].toUpperCase();
+    let bibleData = ['KJV'];
+    if (versions.availableVersions.includes(possibleVersion)) {
+        bibleData = [possibleVersion];
+        query.pop();
+    }
+    log.info(bibleData);
     if (query.includes('-')) {
         let splitLocation = query.findIndex('-');
         let left = parseSingleVerse(query.slice(0, splitLocation));

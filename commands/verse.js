@@ -1,4 +1,4 @@
-const { links } = require('../config/config.json');
+const { links, prefix } = require('../config/config.json');
 const versions = require('../config/meta/bible.json');
 const counts = require('../config/meta/counts.json');
 
@@ -11,7 +11,12 @@ module.exports = async (bot, msg, args) => {
         .setDescription(`That is positively not a Bible verse, dude... if you think it's a Bible verse and Gideon messed up, please contact [Gideon Tong](${links.contact}) or let me know [here](${links.bugReport}) with a GitHub account.`)
         .setFooter(`${bot.user.username}'s Bible Reader`)
         .setColor(0xe91e63);
-    let bibleData = parseVerse(args);
+    let bibleData;
+    try {
+        bibleData = parseVerse(args);
+    } catch (err) {
+        log.error(`Trying to parse ${args} but got ${err}`);
+    }
     if (!bibleData) {
         msg.channel.send(errorNotVerse);
         return;
@@ -22,7 +27,7 @@ module.exports = async (bot, msg, args) => {
         .setAuthor(`${meta.version} Bible`, 'https://img.icons8.com/plasticine/100/000000/holy-bible.png')
         .setTitle(`${bibleData[1][0]} ${bibleData[1][1]}:${bibleData[1][2]}`)
         .setDescription(bible[bibleData[1][0]][bibleData[1][1]][bibleData[1][2]])
-        .setFooter(`${bot.user.username}'s Bible Reader`)
+        .setFooter(`${bot.user.username}'s Bible Reader, see copyright with ${prefix}copyright ${meta.version}`)
         .setColor(0xffeb3b);
     msg.channel.send(verse);
 }

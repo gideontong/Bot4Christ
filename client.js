@@ -38,7 +38,7 @@ client.on('ready', () => {
     log.info(`The bot has begun startup as ${client.user.tag} on prefix ${prefix}`);
     setInterval(() => {
         const index = Math.floor(Math.random() * activities.length);
-        client.user.setActivity(activities[index].text, activites[index].options);
+        client.user.setActivity(activities[index].text, activities[index].options);
     }, activityUpdateInterval * 1000);
 });
 

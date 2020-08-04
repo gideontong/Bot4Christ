@@ -18,10 +18,11 @@ file = sys.argv[1] if len(sys.argv) > 1 else '../../config/bibles/NIV.xml'
 soup = BeautifulSoup(open(file).read(), 'lxml')
 bible = {
     "meta": {
-        "version": "NIV",
-        "fullname": "New International Version",
+        "version": "ESV",
+        "fullname": "English Standard Version",
         "language": "en",
-        "date": 2011
+        "date": 2016,
+        "copyright": "Copyright © 2001 by Crossway, a publishing ministry of Good News Publishers. All rights reserved."
     },
     "bible": {
     }
@@ -40,5 +41,5 @@ for book in soup.html.body.bible:
                         bible['bible'][book['n']][chapter['n']][verse['n']] = verse.string
                         print(book['n'], chapter['n'], verse['n'])
 
-with open('NIV.json', 'w') as outfile:
+with open('ESV.json', 'w') as outfile:
     json.dump(bible, outfile)

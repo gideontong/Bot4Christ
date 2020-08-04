@@ -44,5 +44,535 @@
         "YLT": "YLT.json"
     },
     "bookmap": {
+        "Genesis": [
+            "Genesis",
+            "\u5275 \u4e16 \u8a18",
+            "Gen\u00e8se",
+            "G\u00e9nesis",
+            "S\u00e1ng Th\u1ebf",
+            "\u05d1\u05e8\u05d0\u05e9\u05d9\u05ea",
+            "Da Start"
+        ],
+        "Exodus": [
+            "Exodus",
+            "\u51fa \u57c3 \u53ca \u8a18",
+            "Exode",
+            "\u00c9xodo",
+            "Xu\u1ea5t H\u00e0nh",
+            "\u05e9\u05de\u05d5\u05ea",
+            "Outta Egypt"
+        ],
+        "Leviticus": [
+            "Leviticus",
+            "\u5229 \u672a \u8a18",
+            "L\u00e9vitique",
+            "Lev\u00edtico",
+            "L\u00ea-vi",
+            "\u05d5\u05d9\u05e7\u05e8\u05d0",
+            "Da Prieses"
+        ],
+        "Numbers": [
+            "Numbers",
+            "\u6c11 \u6578 \u8a18",
+            "Nombres",
+            "N\u00fameros",
+            "D\u00e2n S\u1ed1",
+            "\u05d1\u05de\u05d3\u05d1\u05e8"
+        ],
+        "Deuteronomy": [
+            "Deuteronomy",
+            "\u7533 \u547d \u8a18",
+            "Deut\u00e9ronome",
+            "Deuteronomio",
+            "Ph\u1ee5c Truy\u1ec1n Lu\u1eadt L\u1ec7",
+            "\u05d3\u05d1\u05e8\u05d9\u05dd",
+            "Da Rules Secon Time"
+        ],
+        "Joshua": [
+            "Joshua",
+            "\u7d04 \u66f8 \u4e9e \u8a18",
+            "Josu\u00e9",
+            "Gi\u00f4-sua",
+            "\u05d9\u05d4\u05d5\u05e9\u05e2"
+        ],
+        "Judges": [
+            "Judges",
+            "\u58eb \u5e2b \u8a18",
+            "Juges",
+            "Jueces",
+            "C\u00e1c Th\u1ee7 L\u00e3nh",
+            "\u05e9\u05d5\u05e4\u05d8\u05d9\u05dd"
+        ],
+        "Ruth": [
+            "Ruth",
+            "\u8def \u5f97 \u8a18",
+            "Rut",
+            "Ru-t\u01a1",
+            "\u05e8\u05d5\u05ea",
+            "Rut"
+        ],
+        "1 Samuel": [
+            "I Samuel",
+            "1 Samuel",
+            "\u6492 \u6bcd \u8033 \u8a18 \u4e0a",
+            "I Sa-mu-\u00ean",
+            "\u05e9\u05de\u05d5\u05d0\u05dc \u05d0"
+        ],
+        "2 Samuel": [
+            "II Samuel",
+            "2 Samuel",
+            "\u6492 \u6bcd \u8033 \u8a18 \u4e0b",
+            "II Sa-mu-\u00ean",
+            "\u05e9\u05de\u05d5\u05d0\u05dc \u05d1"
+        ],
+        "1 Kings": [
+            "I Kings",
+            "1 Kings",
+            "\u5217 \u738b \u7d00 \u4e0a",
+            "1 Rois",
+            "1 Reyes",
+            "I C\u00e1c Vua",
+            "\u05de\u05dc\u05db\u05d9\u05dd \u05d0"
+        ],
+        "2 Kings": [
+            "II Kings",
+            "2 Kings",
+            "\u5217 \u738b \u7d00 \u4e0b",
+            "2 Rois",
+            "2 Reyes",
+            "II C\u00e1c Vua",
+            "\u05de\u05dc\u05db\u05d9\u05dd \u05d1"
+        ],
+        "1 Chronicles": [
+            "I Chronicles",
+            "1 Chronicles",
+            "\u6b77 \u4ee3 \u5fd7 \u4e0a",
+            "1 Chroniques",
+            "1 Cr\u00f3nicas",
+            "I S\u1eed K\u00fd",
+            "\u05d3\u05d1\u05e8\u05d9 \u05d4\u05d9\u05de\u05d9\u05dd \u05d0"
+        ],
+        "2 Chronicles": [
+            "II Chronicles",
+            "2 Chronicles",
+            "\u6b77 \u4ee3 \u5fd7 \u4e0b",
+            "2 Chroniques",
+            "2 Cr\u00f3nicas",
+            "II S\u1eed K\u00fd",
+            "\u05d3\u05d1\u05e8\u05d9 \u05d4\u05d9\u05de\u05d9\u05dd \u05d1"
+        ],
+        "Ezra": [
+            "Ezra",
+            "\u4ee5 \u65af \u62c9 \u8a18",
+            "Esdras",
+            "\u00ca-x\u01a1-ra",
+            "\u05e2\u05d6\u05e8\u05d0"
+        ],
+        "Nehemiah": [
+            "Nehemiah",
+            "\u5c3c \u5e0c \u7c73 \u8a18",
+            "N\u00e9h\u00e9mie",
+            "Nehem\u00edas",
+            "N\u00ea-h\u00ea-mi-a",
+            "\u05e0\u05d7\u05de\u05d9\u05d4"
+        ],
+        "Esther": [
+            "Esther",
+            "\u4ee5 \u65af \u5e16 \u8a18",
+            "Ester",
+            "\u00ca-x\u01a1-t\u00ea",
+            "\u05d0\u05e1\u05ea\u05e8"
+        ],
+        "Job": [
+            "Job",
+            "\u7d04 \u4f2f \u8a18",
+            "Gi\u00f3p",
+            "\u05d0\u05d9\u05d5\u05d1"
+        ],
+        "Psalms": [
+            "Psalms",
+            "Psalm",
+            "\u8a69 \u7bc7",
+            "Psaumes",
+            "Salmos",
+            "Th\u00e1nh Thi",
+            "\u05ea\u05d4\u05d9\u05dc\u05d9\u05dd"
+        ],
+        "Proverbs": [
+            "Proverbs",
+            "\u7bb4 \u8a00",
+            "Proverbes",
+            "Proverbios",
+            "Ch\u00e2m Ng\u00f4n",
+            "\u05de\u05e9\u05dc\u05d9"
+        ],
+        "Ecclesiastes": [
+            "Ecclesiastes",
+            "\u50b3 \u9053 \u66f8",
+            "Eccl\u00e9siaste",
+            "Eclesiast\u00e9s",
+            "Gi\u1ea3ng S\u01b0",
+            "\u05e7\u05d4\u05dc\u05ea"
+        ],
+        "Song of Solomon": [
+            "Song of Solomon",
+            "\u96c5 \u6b4c",
+            "Cantique des Cantiques",
+            "Cantares",
+            "Nh\u00e3 Ca",
+            "\u05e9\u05d9\u05e8 \u05d4\u05e9\u05d9\u05e8\u05d9\u05dd"
+        ],
+        "Isaiah": [
+            "Isaiah",
+            "\u4ee5 \u8cfd \u4e9e \u66f8",
+            "\u00c9sa\u00efe",
+            "Isa\u00edas",
+            "I-sai-a",
+            "\u05d9\u05e9\u05e2\u05d4"
+        ],
+        "Jeremiah": [
+            "Jeremiah",
+            "\u8036 \u5229 \u7c73 \u66f8",
+            "J\u00e9r\u00e9mie",
+            "Jerem\u00edas",
+            "Gi\u00ea-r\u00ea-mi-a",
+            "\u05d9\u05e8\u05de\u05d9\u05d4"
+        ],
+        "Lamentations": [
+            "Lamentations",
+            "\u8036 \u5229 \u7c73 \u54c0 \u6b4c",
+            "Lamentaciones",
+            "Ai Ca",
+            "\u05d0\u05d9\u05db\u05d4"
+        ],
+        "Ezekiel": [
+            "Ezekiel",
+            "\u4ee5 \u897f \u7d50 \u66f8",
+            "\u00c9z\u00e9chiel",
+            "Ezequiel",
+            "\u00ca-x\u00ea-ki-\u00ean",
+            "\u05d9\u05d7\u05d6\u05e7\u05d0\u05dc"
+        ],
+        "Daniel": [
+            "Daniel",
+            "\u4f46 \u4ee5 \u7406 \u66f8",
+            "\u00d0a-ni-\u00ean",
+            "\u05d3\u05e0\u05d9\u05d0\u05dc"
+        ],
+        "Hosea": [
+            "Hosea",
+            "\u4f55 \u897f \u963f \u66f8",
+            "Os\u00e9e",
+            "Oseas",
+            "H\u00f4-s\u00ea-a",
+            "\u05d4\u05d5\u05e9\u05e2"
+        ],
+        "Joel": [
+            "Joel",
+            "\u7d04 \u73e5 \u66f8",
+            "Jo\u00ebl",
+            "Gi\u00f4-\u00ean",
+            "\u05d9\u05d5\u05d0\u05dc"
+        ],
+        "Amos": [
+            "Amos",
+            "\u963f \u6469 \u53f8 \u66f8",
+            "Am\u00f3s",
+            "A-m\u1ed1t",
+            "\u05e2\u05de\u05d5\u05e1"
+        ],
+        "Obadiah": [
+            "Obadiah",
+            "\u4fc4 \u5df4 \u5e95 \u4e9e \u66f8",
+            "Abdias",
+            "Abd\u00edas",
+            "\u00d4-ba-\u0111i-a",
+            "\u05e2\u05d1\u05d3\u05d9\u05d4"
+        ],
+        "Jonah": [
+            "Jonah",
+            "\u7d04 \u62ff \u66f8",
+            "Jonas",
+            "Jon\u00e1s",
+            "Gi\u00f4-na",
+            "\u05d9\u05d5\u05e0\u05d4"
+        ],
+        "Micah": [
+            "Micah",
+            "\u5f4c \u8fe6 \u66f8",
+            "Mich\u00e9e",
+            "Miqueas",
+            "Mi-ca",
+            "\u05de\u05d9\u05db\u05d4"
+        ],
+        "Nahum": [
+            "Nahum",
+            "\u90a3 \u9d3b \u66f8",
+            "Nah\u00fam",
+            "Na-hum",
+            "\u05e0\u05d7\u05d5\u05dd"
+        ],
+        "Habakkuk": [
+            "Habakkuk",
+            "\u54c8 \u5df4 \u8c37 \u66f8",
+            "Habacuc",
+            "Ha-ba-c\u00fac",
+            "\u05d7\u05d1\u05e7\u05d5\u05e7"
+        ],
+        "Zephaniah": [
+            "Zephaniah",
+            "\u897f \u756a \u96c5 \u66f8",
+            "Sophonie",
+            "Sofon\u00edas",
+            "X\u00ea-pha-ni-a",
+            "\u05e6\u05e4\u05e0\u05d9\u05d4"
+        ],
+        "Haggai": [
+            "Haggai",
+            "\u54c8 \u8a72 \u66f8",
+            "Agg\u00e9e",
+            "Hageo",
+            "Ha-gai",
+            "\u05d7\u05d2\u05d9"
+        ],
+        "Zechariah": [
+            "Zechariah",
+            "\u6492 \u8fe6 \u5229 \u4e9e",
+            "Zacharie",
+            "Zacar\u00edas",
+            "X\u00ea-ca-ri-a",
+            "\u05d6\u05db\u05e8\u05d9\u05d4"
+        ],
+        "Malachi": [
+            "Malachi",
+            "\u746a \u62c9 \u57fa \u66f8",
+            "Malachie",
+            "Malaqu\u00edas",
+            "Ma-la-ki",
+            "\u05de\u05dc\u05d0\u05db\u05d9"
+        ],
+        "Matthew": [
+            "Matthew",
+            "\u99ac \u592a \u798f \u97f3",
+            "Matthieu",
+            "Mateo",
+            "Ma-thi-\u01a1"
+        ],
+        "Mark": [
+            "Mark",
+            "\u99ac \u53ef \u798f \u97f3",
+            "Marc",
+            "Marcos",
+            "M\u00e1c"
+        ],
+        "Luke": [
+            "Luke",
+            "\u8def \u52a0 \u798f \u97f3",
+            "Luc",
+            "Lucas",
+            "Lu-ca"
+        ],
+        "John": [
+            "John",
+            "\u7d04 \u7ff0 \u798f \u97f3",
+            "Jean",
+            "Juan",
+            "Gi\u0103ng"
+        ],
+        "Acts": [
+            "Acts",
+            "\u4f7f \u5f92 \u884c \u50b3",
+            "Actes",
+            "Hechos",
+            "C\u00f4ng V\u1ee5 C\u00e1c S\u1ee9 \u0111\u1ed3",
+            "Jesus Guys"
+        ],
+        "Romans": [
+            "Romans",
+            "\u7f85 \u99ac \u66f8",
+            "Romains",
+            "Romanos",
+            "R\u00f4-ma",
+            "Fo Da Rome Peopo"
+        ],
+        "1 Corinthians": [
+            "I Corinthians",
+            "1 Corinthians",
+            "\u6b4c \u6797 \u591a \u524d \u66f8",
+            "1 Corinthiens",
+            "1 Corintios",
+            "I C\u00f4-rinh-t\u00f4",
+            "Numba 1 Fo Da Corint Peopo"
+        ],
+        "2 Corinthians": [
+            "II Corinthians",
+            "2 Corinthians",
+            "\u6b4c \u6797 \u591a \u5f8c \u66f8",
+            "2 Corinthiens",
+            "2 Corintios",
+            "II C\u00f4-rinh-t\u00f4",
+            "Numba 2 Fo Da Corint Peopo"
+        ],
+        "Galatians": [
+            "Galatians",
+            "\u52a0 \u62c9 \u592a \u66f8",
+            "Galates",
+            "G\u00e1latas",
+            "Ga-la-ti",
+            "Fo Da Galatia Peopo"
+        ],
+        "Ephesians": [
+            "Ephesians",
+            "\u4ee5 \u5f17 \u6240 \u66f8",
+            "\u00c9ph\u00e9siens",
+            "Efesios",
+            "\u00ca-ph\u00ea-s\u00f4",
+            "Fo Da Efesus Peopo"
+        ],
+        "Philippians": [
+            "Philippians",
+            "\u8153 \u7acb \u6bd4 \u66f8",
+            "Philippiens",
+            "Filipenses",
+            "Phi-l\u00edp",
+            "Fo Da Philippi Peopo"
+        ],
+        "Colossians": [
+            "Colossians",
+            "\u6b4c \u7f85 \u897f \u66f8",
+            "Colossiens",
+            "Colosenses",
+            "C\u00f4-l\u00f4-se",
+            "Fo Da Colosse Peopo"
+        ],
+        "1 Thessalonians": [
+            "I Thessalonians",
+            "1 Thessalonians",
+            "\u5e16 \u6492 \u7f85 \u5c3c \u8fe6 \u524d \u66f8",
+            "1 Thessaloniciens",
+            "1 Tesalonicenses",
+            "I Th\u00ea-sa-l\u00f4-ni-ca",
+            "Numba 1 Fo Da Tessalonika Peopo"
+        ],
+        "2 Thessalonians": [
+            "II Thessalonians",
+            "2 Thessalonians",
+            "\u5e16 \u6492 \u7f85 \u5c3c \u8fe6 \u5f8c \u66f8",
+            "2 Thessaloniciens",
+            "2 Tesalonicenses",
+            "II Th\u00ea-sa-l\u00f4-ni-ca",
+            "Numba 2 Fo Da Tessalonika Peopo"
+        ],
+        "1 Timothy": [
+            "I Timothy",
+            "1 Timothy",
+            "\u63d0 \u6469 \u592a \u524d \u66f8",
+            "1 Timoth\u00e9e",
+            "1 Timoteo",
+            "I Ti-m\u00f4-th\u00ea",
+            "Numba 1 Fo Timoty"
+        ],
+        "2 Timothy": [
+            "II Timothy",
+            "2 Timothy",
+            "\u63d0 \u6469 \u592a \u5f8c \u66f8",
+            "2 Timoth\u00e9e",
+            "2 Timoteo",
+            "II Ti-m\u00f4-th\u00ea",
+            "Numba 2 Fo Timothy"
+        ],
+        "Titus": [
+            "Titus",
+            "\u63d0 \u591a \u66f8",
+            "Tite",
+            "Tito",
+            "T\u00edt",
+            "Fo Titus"
+        ],
+        "Philemon": [
+            "Philemon",
+            "\u8153 \u5229 \u9580 \u66f8",
+            "Phil\u00e9mon",
+            "Filem\u00f3n",
+            "Phi-l\u00ea-m\u00f4n",
+            "Fo Filemon"
+        ],
+        "Hebrews": [
+            "Hebrews",
+            "\u5e0c \u4f2f \u4f86 \u66f8",
+            "H\u00e9breux",
+            "Hebreos",
+            "H\u00ea-b\u01a1-r\u01a1",
+            "Fo Da Hebrew Peopo"
+        ],
+        "James": [
+            "James",
+            "\u96c5 \u5404 \u66f8",
+            "Jacques",
+            "Santiago",
+            "Gia-c\u01a1",
+            "From James"
+        ],
+        "1 Peter": [
+            "I Peter",
+            "1 Peter",
+            "\u5f7c \u5f97 \u524d \u66f8",
+            "1 Pierre",
+            "1 Pedro",
+            "I Phi-r\u01a1",
+            "Numba 1 From Peter"
+        ],
+        "2 Peter": [
+            "II Peter",
+            "2 Peter",
+            "\u5f7c \u5f97 \u5f8c \u66f8",
+            "2 Pierre",
+            "2 Pedro",
+            "II Phi-r\u01a1",
+            "Numba 2 From Peter"
+        ],
+        "1 John": [
+            "I John",
+            "1 John",
+            "\u7d04 \u7ff0 \u4e00 \u66f8",
+            "1 Jean",
+            "1 Juan",
+            "I Gi\u0103ng",
+            "Numba 1 From John"
+        ],
+        "2 John": [
+            "II John",
+            "2 John",
+            "\u7d04 \u7ff0 \u4e8c \u66f8",
+            "2 Jean",
+            "2 Juan",
+            "II Gi\u0103ng",
+            "Numba 2 From John"
+        ],
+        "3 John": [
+            "III John",
+            "3 John",
+            "\u7d04 \u7ff0 \u4e09 \u66f8",
+            "3 Jean",
+            "3 Juan",
+            "III Gi\u0103ng",
+            "Numba 3 From John"
+        ],
+        "Jude": [
+            "Jude",
+            "\u7336 \u5927 \u66f8",
+            "Judas",
+            "Giu-\u0111e",
+            "From Jude"
+        ],
+        "Revelation": [
+            "Revelation of John",
+            "Revelation",
+            "\u555f \u793a \u9304",
+            "Apocalypse",
+            "Apocalipsis",
+            "Kh\u1ea3i Huy\u1ec1n",
+            "Jesus Show"
+        ]
     }
 }

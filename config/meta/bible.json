@@ -42,5 +42,7 @@
         "WEB": "WEB.json",
         "WLC": "WLC.json",
         "YLT": "YLT.json"
+    },
+    "bookmap": {
     }
 }

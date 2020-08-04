@@ -25,6 +25,12 @@
                 "type": "STREAMING",
                 "url": "https://twitch.tv/gideontong"
             }
+        },
+        {
+            "text": "volleyball ministries",
+            "options": {
+                "type": "PLAYING"
+            }
         }
     ],
     "logger": {

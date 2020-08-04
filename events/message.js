@@ -11,6 +11,7 @@ module.exports = async msg => {
     const bot = msg.client;
     const args = msg.content.split(` `);
     const command = args.shift().slice(prefix.length);
+    if (!RegExp(/^[a-z0-9]+$/i).test(command)) return;
     if (msg.channel.type == 'dm') {
         const disallow = new MessageEmbed()
             .setTitle("I'm not listening to DMs yet!")

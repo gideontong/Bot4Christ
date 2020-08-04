@@ -8,16 +8,23 @@
     "activityUpdateInterval": 10,
     "activities": [
         {
-            "type": "WATCHING",
-            "text": "the throne of God"
+            "text": "the throne of God",
+            "options": {
+                "type": "WATCHING"
+            }
         },
         {
-            "type": "LISTENING",
-            "text": "!help to get started"
+            "text": "!help to get started",
+            "options": {
+                "type": "LISTENING"
+            }
         },
         {
-            "type": "STREAMING",
-            "text": "pastor's new sermon"
+            "text": "pastor's new sermon",
+            "options": {
+                "type": "STREAMING",
+                "url": "https://english.cccto.org"
+            }
         }
     ],
     "logger": {

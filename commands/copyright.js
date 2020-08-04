@@ -13,7 +13,7 @@ module.exports = async (bot, msg, args) => {
     }
     let version = args[0].toUpperCase();
     if (versions.availableVersions.includes(version)) {
-        const { meta } = require(`../config/bibles/${versions[version]}`);
+        const { meta } = require(`../config/bibles/${versions['versionmap'][version]}`);
         const copyright = new MessageEmbed()
             .setAuthor(bot.user.username, bot.user.avatarURL)
             .setTitle(`${meta.fullname} Copyright Information`)

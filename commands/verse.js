@@ -21,7 +21,7 @@ module.exports = async (bot, msg, args) => {
         msg.channel.send(errorNotVerse);
         return;
     }
-    const { meta, bible } = require(`../config/bibles/${versions[bibleData[0]]}`);
+    const { meta, bible } = require(`../config/bibles/${versions['versionmap'][bibleData[0]]}`);
     // TODO: add verse range support
     const verse = new MessageEmbed()
         .setAuthor(`${meta.version} Bible`, 'https://img.icons8.com/plasticine/100/000000/holy-bible.png')

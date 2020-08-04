@@ -7,7 +7,7 @@ module.exports = async (bot, msg, args) => {
     if (args.length > 0 && args[0].toLowerCase().startsWith('version')) {
         versionList = '';
         for (let version of availableVersions) {
-            versionList = version + ', ';
+            versionList += version + ', ';
         }
         versionList = versionList.substring(0, versionList.length - 2);
         embed.setAuthor(bot.user.username, bot.user.avatarURL)

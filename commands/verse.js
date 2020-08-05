@@ -24,6 +24,7 @@ module.exports = async (bot, msg, args) => {
     const { meta, bible } = require(`../config/bibles/${versions['versionmap'][bibleData[0]]}`);
     let chapterName;
     errorNotVerse.setDescription(`I couldn't find the chapter you were looking for, so if you requested a meme Bible version or a book from the apocrypha the version might not have the book. Contact [Gideon Tong](${links.contact}) if you think there's an issue.`)
+        .setThumbnail('https://i.imgur.com/BUeYH9V.gif');
     try {
         chapterName = versions['bookmap'][bibleData[1][0]][meta.version];
     } catch (err) {

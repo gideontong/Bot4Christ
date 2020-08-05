@@ -12,7 +12,7 @@ module.exports = async (bot, msg, args) => {
         versionList = versionList.substring(0, versionList.length - 2);
         embed.setAuthor(bot.user.username, bot.user.avatarURL)
             .setDescription("Here's the list of Bible version codes I can currently look at for you.")
-            .addField(`English:`, versionList, false)
+            .addField(`Multilanguage:`, versionList, false)
             .setFooter(`${bot.user.username} v${process.env.npm_package_version} Help Menu`);
     } else {
         embed.setAuthor(bot.user.username, bot.user.avatarURL)

@@ -19,7 +19,7 @@ module.exports = async (bot, msg, args) => {
             .setDescription(`Need a bit of help? ${bot.user.username} is here to help you!`)
             .addField(`Get a Bible verse!`, `\`${prefix}verse Genesis 1:1\` shows you a Bible verse. You can even include information like the Bible version, and passages are coming soon! To see a list of supported versions, say \`${prefix}help versions\`!`, false)
             .addField(`See current COVID-19 cases:`, `\`${prefix}cases\` tells you the current number of cases in Ventura.`, false)
-            .addField(`Learn more about this bot:`, `\`${prefix}about\` tells you everything you want to know, and cool facts!`, false)
+            .addField(`More Commands`, `\`${prefix}about\` tells you about the bot, \`${prefix}creator\` tells you about the creator, and \`${prefix}copyright\` tells you about copyright.`, false)
             .setFooter(`${bot.user.username} v${process.env.npm_package_version} Help Menu`)
             .setColor(0xed1c24);
     }

@@ -32,7 +32,7 @@ module.exports = async (bot, msg, args) => {
         log.error(err);
         return;
     }
-    if (!chapterName) {
+    if (!chapterName || !bible[chapterName][bibleData[1][1]]) {
         msg.channel.send(errorNotVerse);
         return;
     }

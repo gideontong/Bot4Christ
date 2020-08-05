@@ -22,26 +22,29 @@ module.exports = async (bot, msg, args) => {
         return;
     }
     const { meta, bible } = require(`../config/bibles/${versions['versionmap'][bibleData[0]]}`);
-    let chapterName;
+    let bookName;
     errorNotVerse.setDescription(`I couldn't find the chapter you were looking for, so if you requested a meme Bible version or a book from the apocrypha the version might not have the book. Contact [Gideon Tong](${links.contact}) if you think there's an issue.`)
         .setThumbnail(messageIcons.sad[Math.floor(Math.random() * messageIcons.sad.length)]);
     try {
-        chapterName = versions['bookmap'][bibleData[1][0]][meta.version];
+        bookName = versions['bookmap'][bibleData[1][0]][meta.version];
     } catch (err) {
         msg.channel.send(errorNotVerse);
         log.error(err);
         return;
     }
-    log.info(`${chapterName}, ${bible[chapterName]}, ${bible[chapterName][bibleData[1][1]]}`);
-    if (!chapterName || !bible[chapterName][bibleData[1][1]]) {
+    log.info(`${bookName}`);
+    log.info(`${bible[bookName]}`);
+    log.info(`${bibleData}`);
+    log.info(`${bible[bookName][bibleData[1][1]]}`);
+    if (!bookName || !bible[bookName][bibleData[1][1]]) {
         msg.channel.send(errorNotVerse);
         return;
     }
     // TODO: add verse range support
     const verse = new MessageEmbed()
         .setAuthor(`${meta.version} Bible`, 'https://img.icons8.com/plasticine/100/000000/holy-bible.png')
-        .setTitle(`${chapterName} ${bibleData[1][1]}:${bibleData[1][2]}`)
-        .setDescription(bible[chapterName][bibleData[1][1]][bibleData[1][2]])
+        .setTitle(`${bookName} ${bibleData[1][1]}:${bibleData[1][2]}`)
+        .setDescription(bible[bookName][bibleData[1][1]][bibleData[1][2]])
         .setFooter(`${bot.user.username}'s Bible Reader, see copyright with ${prefix}copyright ${meta.version}`)
         .setColor(0xffeb3b);
     if (bibleData[3]['outOfBoundsVerse']) {

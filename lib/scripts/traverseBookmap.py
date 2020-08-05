@@ -16,7 +16,8 @@ for book in json.loads(open('../../config/meta/counts.json').read()):
 
 def set_hpb():
     books = json.loads(open('pidginMap.json').read())
-    bookmap[book]['HPB'] = books[book]
+    for book in books:
+        bookmap[book]['HPB'] = books[book]
 
 for bible in os.listdir('../../config/bibles'):
     print(bible)

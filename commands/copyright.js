@@ -1,3 +1,4 @@
+const { prefix, links } = require('../config/config.json');
 const versions = require('../config/meta/bible.json');
 const { MessageEmbed } = require('discord.js');
 

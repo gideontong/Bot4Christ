@@ -1,11 +1,12 @@
 module.exports = async (bot, msg, args) => {
     msg.channel.send('🏓 Pinging...').then((message) => {
         const start = new Date().valueOf();
-        const { meta } = require('../config/bibles/KJV.json');
+        const { links } = require('../config/config.json');
         const end = new Date().valueOf();
         message.edit({
             embed: {
                 title: `📶 ${bot.user.username} Service Availability`,
+                description: `Currently running on \`us-west-01.gid.network/discord\`. Issues? Contact [Gideon Tong](${links.contact}) for help.`,
                 fields: [
                     {
                         name: "Server Round Trip Time",
@@ -18,8 +19,12 @@ module.exports = async (bot, msg, args) => {
                     {
                         name: "Database Connection Time",
                         value: `${end - start}ms`
-                    }
-                ]
+                    },
+                ],
+                footer: {
+                    text: `Currently serving ${bot.users.cache.size} users!`
+                },
+                color: 0x18ffff
             }
         });
     })

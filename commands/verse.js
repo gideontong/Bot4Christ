@@ -32,10 +32,6 @@ module.exports = async (bot, msg, args) => {
         log.error(err);
         return;
     }
-    log.info(`${bookName}`);
-    log.info(`${bible[bookName]}`);
-    log.info(`${bibleData}`);
-    log.info(`${bible[bookName][bibleData[1][1]]}`);
     if (!bookName || !bible[bookName][bibleData[1][1]]) {
         msg.channel.send(errorNotVerse);
         return;

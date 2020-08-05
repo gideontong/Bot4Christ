@@ -4,6 +4,7 @@ module.exports = async (bot, msg, args) => {
         const { links } = require('../config/config.json');
         const end = new Date().valueOf();
         message.edit({
+            content: "🏓 Successfully pinged!",
             embed: {
                 title: `📶 ${bot.user.username} Service Availability`,
                 description: `Currently running on \`us-west-01.gid.network/discord\`. Issues? Contact [Gideon Tong](${links.contact}) for help.`,

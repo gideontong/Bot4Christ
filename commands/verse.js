@@ -62,6 +62,7 @@ function parseVerse(query) {
         bibleData = [possibleVersion];
         query.pop();
     }
+    log.info(bibleData);
     if (query.includes('-')) {
         let splitLocation = query.findIndex('-');
         let left = parseSingleVerse(query.slice(0, splitLocation));

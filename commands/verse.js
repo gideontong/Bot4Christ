@@ -43,6 +43,9 @@ module.exports = async (bot, msg, args) => {
         .setDescription(bible[chapterName][bibleData[1][1]][bibleData[1][2]])
         .setFooter(`${bot.user.username}'s Bible Reader, see copyright with ${prefix}copyright ${meta.version}`)
         .setColor(0xffeb3b);
+    if (bibleData[3]['outOfBoundsVerse']) {
+        verse.addField('⚠ Warning', "The verse or passage you are looking for doesn't exist, so I gave you the last verse from the chapter instead!", false);
+    }
     msg.channel.send(verse);
 }
 
@@ -59,6 +62,9 @@ function parseVerse(query) {
     }
     let possibleVersion = query[query.length - 1].toUpperCase();
     let bibleData = ['KJV'];
+    let errors = {
+        outOfBoundsVerse: false
+    }
     if (versions.availableVersions.includes(possibleVersion)) {
         bibleData = [possibleVersion];
         query.pop();
@@ -68,27 +74,29 @@ function parseVerse(query) {
         let left = parseSingleVerse(query.slice(0, splitLocation));
         let right = parseSingleVerse(query.slice(splitLocation + 1));
         if (left) {
-            bibleData[1] = left;
+            bibleData[1] = left[0];
             if (right) {
-                bibleData[2] = right;
+                bibleData[2] = right[0];
             } else {
-                bibleData[2] = left;
+                bibleData[2] = left[0];
             }
         } else if (right) {
-            bibleData[1] = right;
-            bibleData[2] = right;
+            bibleData[1] = right[0];
+            bibleData[2] = right[0];
         } else {
             return false;
         }
     } else {
         let verse = parseSingleVerse(query);
         if (verse) {
-            bibleData[1] = verse;
-            bibleData[2] = verse;
+            bibleData[1] = verse[0];
+            bibleData[2] = verse[0];
+            errors.outOfBoundsVerse = verse[1];
         } else {
             return false;
         }
     }
+    bibleData.push(errors);
     return bibleData;
 }
 
@@ -121,15 +129,19 @@ function parseSingleVerse(query) {
         return false;
     }
     // Check if verse exists
+    let outOfBoundsVerse = false;
     if (query.length == 2 && query[1].includes(':')) {
         let bibleCode = query[1].split(':');
         let bibleChapter = parseInt(bibleCode[0]);
         let bibleVerse = parseInt(bibleCode[1]);
         if (!bibleChapter || bibleChapter > Object.keys(counts[verse[0]]).length) return false;
         if (!bibleVerse) return false;
-        else if (bibleVerse > counts[verse[0]][bibleChapter]) bibleVerse = counts[verse[0]][bibleChapter];
+        else if (bibleVerse > counts[verse[0]][bibleChapter]) {
+            outOfBoundsVerse = true;
+            bibleVerse = counts[verse[0]][bibleChapter];
+        }
         verse[1] = bibleChapter;
         verse[2] = bibleVerse;
     }
-    return verse;
+    return [verse, outOfBoundsVerse];
 }

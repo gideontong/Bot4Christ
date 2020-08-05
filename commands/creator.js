@@ -1,4 +1,8 @@
 const thumbnails = [
+    "https://i.giphy.com/media/4NcULQmzWs06DBBJEF/giphy.webp"
+]
+
+const thumbnailsT = [
     "https://cultofthepartyparrot.com/parrots/hd/sleepingparrot.gif",
     "https://cultofthepartyparrot.com/parrots/bananaparrot.gif",
     "https://emojis.slackmojis.com/emojis/images/1584726180/8270/blob-dance.gif",
@@ -8,8 +12,11 @@ const thumbnails = [
     "https://emoji.gg/assets/emoji/bongocat.gif",
     "https://emoji.gg/assets/emoji/6971_BongoPing.gif",
     "https://emoji.gg/assets/emoji/Pandabulous.gif",
+    "https://emoji.gg/assets/emoji/4264_PandaReeRun.gif",
     "https://emoji.gg/assets/emoji/6490_discomapez.gif",
     "https://emoji.gg/assets/emoji/dittohype.gif",
+    "https://emoji.gg/assets/emoji/FeelsDanceMan.gif",
+    "https://emoji.gg/assets/emoji/PusheenCompute.gif",
     "https://emoji.gg/assets/emoji/2366_Loading_Pixels.gif"
 ]
 

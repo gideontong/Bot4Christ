@@ -45,10 +45,10 @@ let message = {
 }
 
 module.exports = async (bot, msg, args) => {
-    message.footer = {
+    message.embed.footer = {
         text: `${bot.user.username} v${process.env.npm_package_version}`,
         icon_url: bot.user.avatarURL
     }
-    message.thumbnail.url = thumbnails[Math.floor(Math.random() * thumbnails.length)]
+    message.embed.thumbnail.url = thumbnails[Math.floor(Math.random() * thumbnails.length)]
     msg.channel.send(message);
 }

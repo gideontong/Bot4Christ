@@ -1,5 +1,5 @@
 const thumbnails = [
-    "https://i.giphy.com/media/4NcULQmzWs06DBBJEF/giphy.webp"
+    "https://media1.giphy.com/media/4NcULQmzWs06DBBJEF/giphy.gif"
 ]
 
 const thumbnailsT = [

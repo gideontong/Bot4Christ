@@ -39,7 +39,7 @@ let message = {
             "url": "https://source.unsplash.com/random/1280x720"
         },
         "thumbnail": {
-            "url": thumbnails[Math.floor(Math.random() * thumbnails.length)]
+            "url": ""
         }
     }
 }
@@ -49,5 +49,6 @@ module.exports = async (bot, msg, args) => {
         text: `${bot.user.username} v${process.env.npm_package_version}`,
         icon_url: bot.user.avatarURL
     }
+    message.thumbnail.url = thumbnails[Math.floor(Math.random() * thumbnails.length)]
     msg.channel.send(message);
 }

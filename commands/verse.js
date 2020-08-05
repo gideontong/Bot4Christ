@@ -22,7 +22,15 @@ module.exports = async (bot, msg, args) => {
         return;
     }
     const { meta, bible } = require(`../config/bibles/${versions['versionmap'][bibleData[0]]}`);
-    let chapterName = versions['bookmap'][bibleData[1][0]][bibleData[0]];
+    let chapterName;
+    try {
+        chapterName = versions['bookmap'][bibleData[1][0]][bibleData[0]];
+    } catch (err) {
+        errorNotVerse.setDescription(`I couldn't find the chapter you were looking for, so if you requested a meme Bible version or a book from the apocrypha the version might not have the book. Contact [Gideon Tong](${links.contact}) if you think there's an issue.`)
+        msg.channel.send(errorNotVerse);
+        log.error(err);
+        return;
+    }
     // TODO: add verse range support
     const verse = new MessageEmbed()
         .setAuthor(`${meta.version} Bible`, 'https://img.icons8.com/plasticine/100/000000/holy-bible.png')

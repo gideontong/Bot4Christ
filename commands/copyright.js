@@ -18,7 +18,8 @@ module.exports = async (bot, msg, args) => {
                 },
                 "footer": {
                     "text": "Copyright Information Screen"
-                }
+                },
+                "color": 0x3f51b5
             }
         }
         msg.channel.send(message);

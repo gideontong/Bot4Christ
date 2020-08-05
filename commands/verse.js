@@ -43,7 +43,7 @@ module.exports = async (bot, msg, args) => {
         .setDescription(bible[chapterName][bibleData[1][1]][bibleData[1][2]])
         .setFooter(`${bot.user.username}'s Bible Reader, see copyright with ${prefix}copyright ${meta.version}`)
         .setColor(0xffeb3b);
-    msg.channel.send(verse)
+    msg.channel.send(verse);
 }
 
 /**

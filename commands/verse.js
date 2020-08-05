@@ -22,11 +22,12 @@ module.exports = async (bot, msg, args) => {
         return;
     }
     const { meta, bible } = require(`../config/bibles/${versions['versionmap'][bibleData[0]]}`);
+    let chapterName = versions['bookmap'][bibleData[1][0]];
     // TODO: add verse range support
     const verse = new MessageEmbed()
         .setAuthor(`${meta.version} Bible`, 'https://img.icons8.com/plasticine/100/000000/holy-bible.png')
-        .setTitle(`${bibleData[1][0]} ${bibleData[1][1]}:${bibleData[1][2]}`)
-        .setDescription(bible[bibleData[1][0]][bibleData[1][1]][bibleData[1][2]])
+        .setTitle(`${chapterName} ${bibleData[1][1]}:${bibleData[1][2]}`)
+        .setDescription(bible[chapterName][bibleData[1][1]][bibleData[1][2]])
         .setFooter(`${bot.user.username}'s Bible Reader, see copyright with ${prefix}copyright ${meta.version}`)
         .setColor(0xffeb3b);
     msg.channel.send(verse);

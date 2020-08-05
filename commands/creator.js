@@ -1,7 +1,6 @@
 const thumbnails = [
     "https://cultofthepartyparrot.com/parrots/hd/sleepingparrot.gif",
     "https://cultofthepartyparrot.com/parrots/bananaparrot.gif",
-    "https://cultofthepartyparrot.com/flags/hd/unitedstatesofamericaparrot.gif",
     "https://emojis.slackmojis.com/emojis/images/1584726180/8270/blob-dance.gif",
     "https://emojis.slackmojis.com/emojis/images/1450458551/184/nyancat_big.gif",
     "https://emojis.slackmojis.com/emojis/images/1479081197/1368/vaporeon.gif",
@@ -12,6 +11,26 @@ const thumbnails = [
     "https://emoji.gg/assets/emoji/6490_discomapez.gif",
     "https://emoji.gg/assets/emoji/dittohype.gif",
     "https://emoji.gg/assets/emoji/2366_Loading_Pixels.gif"
+]
+
+const images = [
+    "https://i.imgur.com/zFELnzL.jpg",
+    "https://i.imgur.com/F7Ir6Qo.jpg",
+    "https://i.imgur.com/SXgThVU.jpg",
+    "https://i.imgur.com/TZ0SH5M.jpg",
+    "https://i.imgur.com/mwbbUC8.jpg",
+    "https://i.imgur.com/4DoSQP8.jpg",
+    "https://i.imgur.com/T151fs6.jpg",
+    "https://i.imgur.com/6Ybg5cO.jpg",
+    "https://i.imgur.com/OIXIU97.jpg",
+    "https://i.imgur.com/h22Aauv.jpg",
+    "https://i.imgur.com/XZMgiLk.jpg",
+    "https://i.imgur.com/5FQIR1P.jpg",
+    "https://i.imgur.com/8Ivhf3k.jpg",
+    "https://i.imgur.com/ff8BgDm.jpg",
+    "https://i.imgur.com/z2b3zpW.jpg",
+    "https://i.imgur.com/pMd5gdk.jpg",
+    "https://i.imgur.com/wBeBbg1.jpg"
 ]
 
 let message = {
@@ -49,7 +68,7 @@ module.exports = async (bot, msg, args) => {
         text: `${bot.user.username} v${process.env.npm_package_version}`,
         icon_url: bot.user.avatarURL
     };
-    message.embed.image.url = "https://source.unsplash.com/random/1280x720";
+    message.embed.image.url = images[Math.floor(Math.random() * images.length)];
     message.embed.thumbnail.url = thumbnails[Math.floor(Math.random() * thumbnails.length)];
     msg.channel.send(message);
 }

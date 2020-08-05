@@ -13,7 +13,7 @@ module.exports = async (bot, msg, args) => {
                     },
                     {
                         name: "Server Connection Time",
-                        value: `${client.ping}ms`
+                        value: `${bot.ping}ms`
                     },
                     {
                         name: "Database Connection Time",

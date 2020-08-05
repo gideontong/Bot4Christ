@@ -36,5 +36,15 @@
     "logger": {
         "guild": "548523285172715550",
         "channel": "735272343773118504"
+    },
+    "messageIcons": {
+        "sad": [
+            "https://i.imgur.com/BUeYH9V.gif",
+            "https://i.imgur.com/4xCVW8f.gif",
+            "https://i.imgur.com/NJyRHmk.gif",
+            "https://i.imgur.com/LASCgAC.gif",
+            "https://i.imgur.com/CVJ5rfb.gif",
+            "https://i.imgur.com/hYi5kZw.gif"
+        ]
     }
 }

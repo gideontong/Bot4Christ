@@ -1,6 +1,12 @@
 const thumbnails = [
+    "https://cultofthepartyparrot.com/parrots/hd/parrot.gif",
+    "https://cultofthepartyparrot.com/parrots/hd/opensourceparrot.gif",
     "https://cultofthepartyparrot.com/parrots/hd/sleepingparrot.gif",
     "https://cultofthepartyparrot.com/parrots/bananaparrot.gif",
+    "https://cultofthepartyparrot.com/parrots/pizzaparrot.gif",
+    "https://cultofthepartyparrot.com/parrots/hd/beerparrot.gif",
+    "https://cultofthepartyparrot.com/parrots/coffeeparrot.gif",
+    "https://cultofthepartyparrot.com/parrots/hd/rythmicalparrot.gif",
     "https://emojis.slackmojis.com/emojis/images/1584726180/8270/blob-dance.gif",
     "https://emojis.slackmojis.com/emojis/images/1450458551/184/nyancat_big.gif",
     "https://emojis.slackmojis.com/emojis/images/1479081197/1368/vaporeon.gif",

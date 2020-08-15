@@ -62,7 +62,7 @@
         "YLT": "YLT.json"
     },
     "bookmap": {
-        "Genesis": {
+        "Gen": {
             "AKJV": "Genesis",
             "ASV": "Genesis",
             "BBE": "Genesis",
@@ -80,7 +80,7 @@
             "WLC": "\u05d1\u05e8\u05d0\u05e9\u05d9\u05ea",
             "YLT": "Genesis"
         },
-        "Exodus": {
+        "Exod": {
             "AKJV": "Exodus",
             "ASV": "Exodus",
             "BBE": "Exodus",
@@ -98,7 +98,7 @@
             "WLC": "\u05e9\u05de\u05d5\u05ea",
             "YLT": "Exodus"
         },
-        "Leviticus": {
+        "Lev": {
             "AKJV": "Leviticus",
             "ASV": "Leviticus",
             "BBE": "Leviticus",
@@ -116,7 +116,7 @@
             "WLC": "\u05d5\u05d9\u05e7\u05e8\u05d0",
             "YLT": "Leviticus"
         },
-        "Numbers": {
+        "Num": {
             "AKJV": "Numbers",
             "ASV": "Numbers",
             "BBE": "Numbers",
@@ -133,7 +133,7 @@
             "WLC": "\u05d1\u05de\u05d3\u05d1\u05e8",
             "YLT": "Numbers"
         },
-        "Deuteronomy": {
+        "Deut": {
             "AKJV": "Deuteronomy",
             "ASV": "Deuteronomy",
             "BBE": "Deuteronomy",
@@ -151,7 +151,7 @@
             "WLC": "\u05d3\u05d1\u05e8\u05d9\u05dd",
             "YLT": "Deuteronomy"
         },
-        "Joshua": {
+        "Josh": {
             "AKJV": "Joshua",
             "ASV": "Joshua",
             "BBE": "Joshua",
@@ -168,7 +168,7 @@
             "WLC": "\u05d9\u05d4\u05d5\u05e9\u05e2",
             "YLT": "Joshua"
         },
-        "Judges": {
+        "Judg": {
             "AKJV": "Judges",
             "ASV": "Judges",
             "BBE": "Judges",
@@ -203,7 +203,7 @@
             "WLC": "\u05e8\u05d5\u05ea",
             "YLT": "Ruth"
         },
-        "1 Samuel": {
+        "1Sam": {
             "AKJV": "I Samuel",
             "ASV": "1 Samuel",
             "BBE": "I Samuel",
@@ -220,7 +220,7 @@
             "WLC": "\u05e9\u05de\u05d5\u05d0\u05dc \u05d0",
             "YLT": "1 Samuel"
         },
-        "2 Samuel": {
+        "2Sam": {
             "AKJV": "II Samuel",
             "ASV": "2 Samuel",
             "BBE": "II Samuel",
@@ -237,7 +237,7 @@
             "WLC": "\u05e9\u05de\u05d5\u05d0\u05dc \u05d1",
             "YLT": "2 Samuel"
         },
-        "1 Kings": {
+        "1Kgs": {
             "AKJV": "I Kings",
             "ASV": "1 Kings",
             "BBE": "I Kings",
@@ -255,7 +255,7 @@
             "WLC": "\u05de\u05dc\u05db\u05d9\u05dd \u05d0",
             "YLT": "1 Kings"
         },
-        "2 Kings": {
+        "2Kgs": {
             "AKJV": "II Kings",
             "ASV": "2 Kings",
             "BBE": "II Kings",
@@ -273,7 +273,7 @@
             "WLC": "\u05de\u05dc\u05db\u05d9\u05dd \u05d1",
             "YLT": "2 Kings"
         },
-        "1 Chronicles": {
+        "1Chr": {
             "AKJV": "I Chronicles",
             "ASV": "1 Chronicles",
             "BBE": "I Chronicles",
@@ -290,7 +290,7 @@
             "WLC": "\u05d3\u05d1\u05e8\u05d9 \u05d4\u05d9\u05de\u05d9\u05dd \u05d0",
             "YLT": "1 Chronicles"
         },
-        "2 Chronicles": {
+        "2Chr": {
             "AKJV": "II Chronicles",
             "ASV": "2 Chronicles",
             "BBE": "II Chronicles",
@@ -325,7 +325,7 @@
             "WLC": "\u05e2\u05d6\u05e8\u05d0",
             "YLT": "Ezra"
         },
-        "Nehemiah": {
+        "Neh": {
             "AKJV": "Nehemiah",
             "ASV": "Nehemiah",
             "BBE": "Nehemiah",
@@ -343,7 +343,7 @@
             "WLC": "\u05e0\u05d7\u05de\u05d9\u05d4",
             "YLT": "Nehemiah"
         },
-        "Esther": {
+        "Esth": {
             "AKJV": "Esther",
             "ASV": "Esther",
             "BBE": "Esther",
@@ -378,7 +378,7 @@
             "WLC": "\u05d0\u05d9\u05d5\u05d1",
             "YLT": "Job"
         },
-        "Psalms": {
+        "Ps": {
             "AKJV": "Psalms",
             "ASV": "Psalm",
             "BBE": "Psalms",
@@ -395,7 +395,7 @@
             "WLC": "\u05ea\u05d4\u05d9\u05dc\u05d9\u05dd",
             "YLT": "Psalm"
         },
-        "Proverbs": {
+        "Prov": {
             "AKJV": "Proverbs",
             "ASV": "Proverbs",
             "BBE": "Proverbs",
@@ -412,7 +412,7 @@
             "WLC": "\u05de\u05e9\u05dc\u05d9",
             "YLT": "Proverbs"
         },
-        "Ecclesiastes": {
+        "Eccl": {
             "AKJV": "Ecclesiastes",
             "ASV": "Ecclesiastes",
             "BBE": "Ecclesiastes",
@@ -429,7 +429,7 @@
             "WLC": "\u05e7\u05d4\u05dc\u05ea",
             "YLT": "Ecclesiastes"
         },
-        "Song of Solomon": {
+        "Song": {
             "AKJV": "Song of Solomon",
             "ASV": "Song of Solomon",
             "BBE": "Song of Solomon",
@@ -446,7 +446,7 @@
             "WLC": "\u05e9\u05d9\u05e8 \u05d4\u05e9\u05d9\u05e8\u05d9\u05dd",
             "YLT": "Song of Solomon"
         },
-        "Isaiah": {
+        "Isa": {
             "AKJV": "Isaiah",
             "ASV": "Isaiah",
             "BBE": "Isaiah",
@@ -464,7 +464,7 @@
             "WLC": "\u05d9\u05e9\u05e2\u05d4",
             "YLT": "Isaiah"
         },
-        "Jeremiah": {
+        "Jer": {
             "AKJV": "Jeremiah",
             "ASV": "Jeremiah",
             "BBE": "Jeremiah",
@@ -481,7 +481,7 @@
             "WLC": "\u05d9\u05e8\u05de\u05d9\u05d4",
             "YLT": "Jeremiah"
         },
-        "Lamentations": {
+        "Lam": {
             "AKJV": "Lamentations",
             "ASV": "Lamentations",
             "BBE": "Lamentations",
@@ -498,7 +498,7 @@
             "WLC": "\u05d0\u05d9\u05db\u05d4",
             "YLT": "Lamentations"
         },
-        "Ezekiel": {
+        "Ezek": {
             "AKJV": "Ezekiel",
             "ASV": "Ezekiel",
             "BBE": "Ezekiel",
@@ -515,7 +515,7 @@
             "WLC": "\u05d9\u05d7\u05d6\u05e7\u05d0\u05dc",
             "YLT": "Ezekiel"
         },
-        "Daniel": {
+        "Dan": {
             "AKJV": "Daniel",
             "ASV": "Daniel",
             "BBE": "Daniel",
@@ -533,7 +533,7 @@
             "WLC": "\u05d3\u05e0\u05d9\u05d0\u05dc",
             "YLT": "Daniel"
         },
-        "Hosea": {
+        "Hos": {
             "AKJV": "Hosea",
             "ASV": "Hosea",
             "BBE": "Hosea",
@@ -585,7 +585,7 @@
             "WLC": "\u05e2\u05de\u05d5\u05e1",
             "YLT": "Amos"
         },
-        "Obadiah": {
+        "Obad": {
             "AKJV": "Obadiah",
             "ASV": "Obadiah",
             "BBE": "Obadiah",
@@ -619,7 +619,7 @@
             "WLC": "\u05d9\u05d5\u05e0\u05d4",
             "YLT": "Jonah"
         },
-        "Micah": {
+        "Mic": {
             "AKJV": "Micah",
             "ASV": "Micah",
             "BBE": "Micah",
@@ -636,7 +636,7 @@
             "WLC": "\u05de\u05d9\u05db\u05d4",
             "YLT": "Micah"
         },
-        "Nahum": {
+        "Nah": {
             "AKJV": "Nahum",
             "ASV": "Nahum",
             "BBE": "Nahum",
@@ -653,7 +653,7 @@
             "WLC": "\u05e0\u05d7\u05d5\u05dd",
             "YLT": "Nahum"
         },
-        "Habakkuk": {
+        "Hab": {
             "AKJV": "Habakkuk",
             "ASV": "Habakkuk",
             "BBE": "Habakkuk",
@@ -670,7 +670,7 @@
             "WLC": "\u05d7\u05d1\u05e7\u05d5\u05e7",
             "YLT": "Habakkuk"
         },
-        "Zephaniah": {
+        "Zeph": {
             "AKJV": "Zephaniah",
             "ASV": "Zephaniah",
             "BBE": "Zephaniah",
@@ -687,7 +687,7 @@
             "WLC": "\u05e6\u05e4\u05e0\u05d9\u05d4",
             "YLT": "Zephaniah"
         },
-        "Haggai": {
+        "Hag": {
             "AKJV": "Haggai",
             "ASV": "Haggai",
             "BBE": "Haggai",
@@ -704,7 +704,7 @@
             "WLC": "\u05d7\u05d2\u05d9",
             "YLT": "Haggai"
         },
-        "Zechariah": {
+        "Zech": {
             "AKJV": "Zechariah",
             "ASV": "Zechariah",
             "BBE": "Zechariah",
@@ -721,7 +721,7 @@
             "WLC": "\u05d6\u05db\u05e8\u05d9\u05d4",
             "YLT": "Zechariah"
         },
-        "Malachi": {
+        "Mal": {
             "AKJV": "Malachi",
             "ASV": "Malachi",
             "BBE": "Malachi",
@@ -739,7 +739,7 @@
             "WLC": "\u05de\u05dc\u05d0\u05db\u05d9",
             "YLT": "Malachi"
         },
-        "Matthew": {
+        "Matt": {
             "AKJV": "Matthew",
             "ASV": "Matthew",
             "BBE": "Matthew",
@@ -824,7 +824,7 @@
             "WEB": "Acts",
             "YLT": "Acts"
         },
-        "Romans": {
+        "Rom": {
             "AKJV": "Romans",
             "ASV": "Romans",
             "BBE": "Romans",
@@ -841,7 +841,7 @@
             "WEB": "Romans",
             "YLT": "Romans"
         },
-        "1 Corinthians": {
+        "1Cor": {
             "AKJV": "I Corinthians",
             "ASV": "1 Corinthians",
             "BBE": "I Corinthians",
@@ -858,7 +858,7 @@
             "WEB": "1 Corinthians",
             "YLT": "1 Corinthians"
         },
-        "2 Corinthians": {
+        "2Cor": {
             "AKJV": "II Corinthians",
             "ASV": "2 Corinthians",
             "BBE": "II Corinthians",
@@ -875,7 +875,7 @@
             "WEB": "2 Corinthians",
             "YLT": "2 Corinthians"
         },
-        "Galatians": {
+        "Gal": {
             "AKJV": "Galatians",
             "ASV": "Galatians",
             "BBE": "Galatians",
@@ -892,7 +892,7 @@
             "WEB": "Galatians",
             "YLT": "Galatians"
         },
-        "Ephesians": {
+        "Eph": {
             "AKJV": "Ephesians",
             "ASV": "Ephesians",
             "BBE": "Ephesians",
@@ -909,7 +909,7 @@
             "WEB": "Ephesians",
             "YLT": "Ephesians"
         },
-        "Philippians": {
+        "Phil": {
             "AKJV": "Philippians",
             "ASV": "Philippians",
             "BBE": "Philippians",
@@ -926,7 +926,7 @@
             "WEB": "Philippians",
             "YLT": "Philippians"
         },
-        "Colossians": {
+        "Col": {
             "AKJV": "Colossians",
             "ASV": "Colossians",
             "BBE": "Colossians",
@@ -943,7 +943,7 @@
             "WEB": "Colossians",
             "YLT": "Colossians"
         },
-        "1 Thessalonians": {
+        "1Thess": {
             "AKJV": "I Thessalonians",
             "ASV": "1 Thessalonians",
             "BBE": "I Thessalonians",
@@ -960,7 +960,7 @@
             "WEB": "1 Thessalonians",
             "YLT": "1 Thessalonians"
         },
-        "2 Thessalonians": {
+        "2Thess": {
             "AKJV": "II Thessalonians",
             "ASV": "2 Thessalonians",
             "BBE": "II Thessalonians",
@@ -977,7 +977,7 @@
             "WEB": "2 Thessalonians",
             "YLT": "2 Thessalonians"
         },
-        "1 Timothy": {
+        "1Tim": {
             "AKJV": "I Timothy",
             "ASV": "1 Timothy",
             "BBE": "I Timothy",
@@ -994,7 +994,7 @@
             "WEB": "1 Timothy",
             "YLT": "1 Timothy"
         },
-        "2 Timothy": {
+        "2Tim": {
             "AKJV": "II Timothy",
             "ASV": "2 Timothy",
             "BBE": "II Timothy",
@@ -1028,7 +1028,7 @@
             "WEB": "Titus",
             "YLT": "Titus"
         },
-        "Philemon": {
+        "Phlm": {
             "AKJV": "Philemon",
             "ASV": "Philemon",
             "BBE": "Philemon",
@@ -1045,7 +1045,7 @@
             "WEB": "Philemon",
             "YLT": "Philemon"
         },
-        "Hebrews": {
+        "Heb": {
             "AKJV": "Hebrews",
             "ASV": "Hebrews",
             "BBE": "Hebrews",
@@ -1062,7 +1062,7 @@
             "WEB": "Hebrews",
             "YLT": "Hebrews"
         },
-        "James": {
+        "Jas": {
             "AKJV": "James",
             "ASV": "James",
             "BBE": "James",
@@ -1079,7 +1079,7 @@
             "WEB": "James",
             "YLT": "James"
         },
-        "1 Peter": {
+        "1Pet": {
             "AKJV": "I Peter",
             "ASV": "1 Peter",
             "BBE": "I Peter",
@@ -1096,7 +1096,7 @@
             "WEB": "1 Peter",
             "YLT": "1 Peter"
         },
-        "2 Peter": {
+        "2Pet": {
             "AKJV": "II Peter",
             "ASV": "2 Peter",
             "BBE": "II Peter",
@@ -1113,7 +1113,7 @@
             "WEB": "2 Peter",
             "YLT": "2 Peter"
         },
-        "1 John": {
+        "1John": {
             "AKJV": "I John",
             "ASV": "1 John",
             "BBE": "I John",
@@ -1130,7 +1130,7 @@
             "WEB": "1 John",
             "YLT": "1 John"
         },
-        "2 John": {
+        "2John": {
             "AKJV": "II John",
             "ASV": "2 John",
             "BBE": "II John",
@@ -1147,7 +1147,7 @@
             "WEB": "2 John",
             "YLT": "2 John"
         },
-        "3 John": {
+        "3John": {
             "AKJV": "III John",
             "ASV": "3 John",
             "BBE": "III John",
@@ -1181,7 +1181,7 @@
             "WEB": "Jude",
             "YLT": "Jude"
         },
-        "Revelation": {
+        "Rev": {
             "AKJV": "Revelation of John",
             "ASV": "Revelation",
             "BBE": "Revelation of John",

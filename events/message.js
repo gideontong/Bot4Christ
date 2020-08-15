@@ -56,7 +56,7 @@ module.exports = async msg => {
     }
     if (cmdFile) {
         log.info(`${msg.author.tag} executed ${command} in ${msg.guild.name} (${msg.channel.name})`);
-        cmdFile(bot, msg, args).catch(err => {
+        cmdFile(bot, msg, args) /*.catch(err => {
             const error = new MessageEmbed()
                 .setTitle("Error running " + command)
                 .setDescription(`Sorry about this! It appears something went wrong.`)
@@ -64,6 +64,6 @@ module.exports = async msg => {
                 .setColor(0xc0392b);
             msg.channel.send(error);
             log.error(`On execution of ${command} in ${msg.guild.name} (${msg.channel.name}): ${err}`);
-        });
+        }); */
     }
 };

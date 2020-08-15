@@ -13,7 +13,7 @@ module.exports = async (oldMsg, newMsg) => {
             if (channelLog && channelLog.type == 'text') {
                 const editedComment = new MessageEmbed()
                     .setAuthor(oldMsg.author.tag, oldMsg.author.displayAvatarURL())
-                    .setTitle(`Message edited in ${msg.guild.name}!`)
+                    .setTitle(`Message edited in ${oldMsg.guild.name}!`)
                     .setDescription(`It had ${oldMsg.attachments.size} attachments.`)
                     .addField('Old Message', oldMsg.cleanContent, false)
                     .addField('New Message', newMsg.cleanContent, false)

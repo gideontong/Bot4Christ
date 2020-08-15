@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/gideontong/A4CDiscord",
   "dependencies": {
+    "bible-passage-reference-parser": "^2.0.1",
     "discord.js": "^12.2.0",
     "log4js": "^6.3.0",
     "seedrandom": "^3.0.5"

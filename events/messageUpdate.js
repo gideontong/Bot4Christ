@@ -6,7 +6,7 @@ const log = require('log4js').getLogger('church');
 module.exports = async (oldMsg, newMsg) => {
     if (oldMsg.author.bot || newMsg.author.bot) return;
     log.info(`${oldMsg.author.tag} edited ${oldMsg.cleanContent} to ${newMsg.cleanContent} in ${oldMsg.guild.name} (${oldMsg.channel.name})`);
-    let guildLog = msg.client.guilds.resolve(logger.guild);
+    let guildLog = oldMsg.client.guilds.resolve(logger.guild);
     try {
         if (guildLog.available) {
             let channelLog = guildLog.channels.resolve(logger.channel);

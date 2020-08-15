@@ -21,6 +21,8 @@ module.exports = async msg => {
         log.info(`${msg.author.tag} tried to send me a DM`);
         msg.channel.send(disallow);
         return;
+    } else if (permissions.commands.debug.includes(command) && (!permissions.admins.includes(msg.author.id))) {
+        return;
     } else if (permissions.commands.admin.includes(command) && (!permissions.admins.includes(msg.author.id) || msg.member.hasPermission('ADMINISTRATOR'))) {
         const disallow = new MessageEmbed()
             .setTitle("You're not allowed to do that!")

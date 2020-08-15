@@ -3,6 +3,9 @@
         "132525049977503744"
     ],
     "commands": {
+        "debug": [
+            "getdata"
+        ],
         "admin": [
         ],
         "upcoming": [

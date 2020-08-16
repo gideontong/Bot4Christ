@@ -10,7 +10,7 @@ module.exports = async msg => {
     if (msg.author.bot || !msg.content.startsWith(prefix)) return;
     const bot = msg.client;
     const args = msg.content.split(` `);
-    const command = args.shift().slice(prefix.length);
+    const command = args.shift().slice(prefix.length).toLowerCase();
     if (!RegExp(/^[a-z0-9]+$/i).test(command)) return;
     if (msg.channel.type == 'dm') {
         const disallow = new MessageEmbed()

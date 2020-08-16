@@ -1,5 +1,5 @@
 {
-    "prefix": "!",
+    "prefix": "~",
     "links": {
         "contact": "https://discord.gg/WUGMTcZ",
         "bugReport": "https://github.com/gideontong/Bot4Christ/issues/new?assignees=gideontong&labels=bug&template=bug_report.md&title=%5BBUG%5D+I+found+a+bug+while+running...",

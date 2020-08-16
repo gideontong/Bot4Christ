@@ -10,7 +10,9 @@
         ],
         "upcoming": [
             "ping",
-            "random"
+            "random",
+            "daily",
+            "dailyverse"
         ]
     }
 }

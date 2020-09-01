@@ -1,6 +1,6 @@
 {
   "name": "bot4christ",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "This is a specialized Discord bot for the Chinese Christian Church of Thousand Oaks's Act4Christ youth group Discord server. It includes moderation queue features as well as empowers people to read the Bible",
   "main": "bot.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gideontong/A4CDiscord.git"
+    "url": "https://github.com/gideontong/Bot4Christ.git"
   },
   "keywords": [
     "Christian",
@@ -20,9 +20,9 @@
   "author": "Gideon Tong <gideon@gideontong.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gideontong/A4CDiscord/issues"
+    "url": "https://github.com/gideontong/Bot4Christ/issues"
   },
-  "homepage": "https://github.com/gideontong/A4CDiscord",
+  "homepage": "https://christalive.online",
   "dependencies": {
     "bible-passage-reference-parser": "^2.0.1",
     "discord.js": "^12.2.0",

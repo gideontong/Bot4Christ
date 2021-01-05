@@ -45,12 +45,6 @@ module.exports = async msg => {
     try {
         cmdFile = require(`../commands/${command}.js`);
     } catch (err) {
-        const error = new MessageEmbed()
-            .setTitle(`Hey, ${prefix}` + command + " isn't a command!")
-            .setDescription(`Sorry about this! If you were told it's a command, please contact [Gideon Tong](${links.contact}) for more help! If you think it should be a command, contact him anyways!\n\nAlternatively, click [this link](${links.featureRequest}) to submit a new feature request (*a GitHub account is required*)!`)
-            .setFooter(`${bot.user.username} might be going crazy...`)
-            .setColor(0x2980b9);
-        msg.channel.send(error);
         log.warn(`${msg.author.tag} tried to run command ${command}`);
         return;
     }

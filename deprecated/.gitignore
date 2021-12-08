@@ -1,8 +1,0 @@
-# Generated Files
-.vscode
-logs/*.log
-generates
-node_modules
-
-# Sensitive Information
-secrets.json

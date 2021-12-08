@@ -1,13 +1,16 @@
-// Require the necessary discord.js classes
+// Dependencies
 const { Client, Intents } = require('discord.js');
+const log4js = require('log4js');
+
+// Configuration
 const { token } = require('./config/secrets.json');
 
-// Create a new client instance
+// Global Configuration
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+const logger = log4js.getLogger('bot');
 
-// When the client is ready, run this code (only once)
 client.once('ready', () => {
-	console.log('Ready!');
+	logger.info(`Logged in as ${client.user.tag}!`);
 });
 
 client.on('interactionCreate', async interaction => {
@@ -24,5 +27,4 @@ client.on('interactionCreate', async interaction => {
 	}
 });
 
-// Login to Discord with your client's token
 client.login(token);

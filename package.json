@@ -2,7 +2,8 @@
   "dependencies": {
     "@discordjs/rest": "^0.1.0-canary.0",
     "discord-api-types": "^0.25.2",
-    "discord.js": "^13.3.1"
+    "discord.js": "^13.3.1",
+    "log4js": "^6.3.0"
   },
   "scripts": {
     "start": "node client.js"

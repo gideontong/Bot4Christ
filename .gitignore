@@ -1,2 +1,5 @@
+# Private Files
+secrets.json
+
 # Generated Files
 node_modules

@@ -1,14 +1,47 @@
 {
+  "name": "bot4christ",
+  "version": "3.0.0",
+  "description": "A Christian Discord bot with verse lookup, devotional, and other interactive features.",
+  "keywords": [
+    "bible",
+    "christian",
+    "jesus"
+  ],
+  "homepage": "https://github.com/gideontong/Bot4Christ",
+  "bugs": {
+    "url": "https://github.com/gideontong/Bot4Christ/issues",
+    "email": "gideon@gideontong.com"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Gideon Tong",
+    "email": "gideon@gideontong.com",
+    "url": "https://gideontong.com"
+  },
+  "funding": [
+    {
+      "type": "individual",
+      "url": "https://ko-fi.com/gideontong"
+    },
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/gideontong"
+    }
+  ],
+  "scripts": {
+    "start": "node client.js"
+  },
   "dependencies": {
     "@discordjs/rest": "^0.1.0-canary.0",
     "discord-api-types": "^0.25.2",
     "discord.js": "^13.3.1",
     "log4js": "^6.3.0"
   },
-  "scripts": {
-    "start": "node client.js"
-  },
   "devDependencies": {
     "eslint": "^8.4.1"
-  }
+  },
+  "os": [
+    "!darwin"
+  ],
+  "private": true
 }

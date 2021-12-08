@@ -1,7 +1,7 @@
 {
   "appenders": {
     "console": {
-      "type": "console"
+      "type": "stdout"
     }
   },
   "categories": {

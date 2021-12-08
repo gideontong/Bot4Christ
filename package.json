@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "discord.js": "^13.3.1"
+  },
+  "scripts": {
+    "start": "node client.js"
+  }
+}

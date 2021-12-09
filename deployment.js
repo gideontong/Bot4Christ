@@ -21,12 +21,6 @@ for (const file of commandFiles) {
 
 const rest = new REST({ version: '9' }).setToken(token);
 
-const guildId = '548523285172715550';
-
-rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: commands })
-  .then(() => logger.info('Registered commands on test server.'))
-  .catch(logger.error);
-
 rest.put(Routes.applicationCommands(clientId), { body: commands })
   .then(() => logger.info('Successfully registered application commands.'))
   .catch(logger.error);

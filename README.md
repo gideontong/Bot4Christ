@@ -23,3 +23,7 @@ You can see the `CONTRIBUTING` file for a list of things that need to be done. D
 ### Unit Tests
 
 Who needs that? If you want to write a mock for this Discord bot, you're welcome to and file a pull request. I'm happy to take a look.
+
+## Credits
+
+* The Simple English Wikipedia was used as the basis for generating a description for each book of the Bible.

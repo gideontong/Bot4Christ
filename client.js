@@ -13,15 +13,16 @@ log4js.configure(loggingConfig);
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 const logger = log4js.getLogger('bot');
 
-require('./events.js')(client);
-
+// Bot Setup
 client.commands = new Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
-	const command = require(`./commands/${file}`);
+  const command = require(`./commands/${file}`);
 	client.commands.set(command.data.name, command);
 }
+
+require('./events.js')(client);
 
 client.once('ready', () => {
 	logger.info(`Logged in as ${client.user.tag}!`);

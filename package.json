@@ -29,7 +29,8 @@
     }
   ],
   "scripts": {
-    "start": "node client.js"
+    "start": "node client.js",
+    "deploy": "node deployment.js"
   },
   "dependencies": {
     "@discordjs/rest": "^0.1.0-canary.0",

@@ -1,7 +1,9 @@
+// Dependencies
 const fs = require('fs');
-const { SlashCommandBuilder } = require('@discordjs/builders');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
+
+// Configuration
 const { clientId, token } = require('./config/secrets.json');
 
 const commands = [];
@@ -13,6 +15,12 @@ for (const file of commandFiles) {
 }
 
 const rest = new REST({ version: '9' }).setToken(token);
+
+const guildId = '548523285172715550';
+
+rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: commands })
+  .then(() => console.log('Regsitered commands on test server.'))
+  .catch(console.error);
 
 rest.put(Routes.applicationCommands(clientId), { body: commands })
   .then(() => console.log('Successfully registered application commands.'))

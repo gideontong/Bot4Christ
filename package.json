@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "@discordjs/rest": "^0.1.0-canary.0",
+    "bible-passage-reference-parser": "^2.0.1",
     "discord-api-types": "^0.25.2",
     "discord.js": "^13.3.1",
     "log4js": "^6.3.0"

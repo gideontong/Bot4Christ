@@ -18,6 +18,11 @@ module.exports = {
       option.setName('verse')
         .setDescription('Verse number of the chapter')
         .setRequired(true)
+    )
+    .addStringOption(option =>
+      option.setName('version')
+        .setDescription('Bible version (default is KJV)')
+        .setRequired(false)
     ),
 	async execute(interaction) {
 		await interaction.reply('Pong!');

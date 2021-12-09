@@ -1,10 +1,15 @@
 // Dependencies
-const fs = require('fs');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
+const fs = require('fs');
+const log4js = require('log4js');
 
 // Configuration
 const { clientId, token } = require('./config/secrets.json');
+const loggingConfig = require('./config/logging.json');
+
+log4js.configure(loggingConfig);
+const logger = log4js.getLogger('deploy');
 
 const commands = [];
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -19,9 +24,9 @@ const rest = new REST({ version: '9' }).setToken(token);
 const guildId = '548523285172715550';
 
 rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: commands })
-  .then(() => console.log('Regsitered commands on test server.'))
-  .catch(console.error);
+  .then(() => logger.info('Registered commands on test server.'))
+  .catch(logger.error);
 
 rest.put(Routes.applicationCommands(clientId), { body: commands })
-  .then(() => console.log('Successfully registered application commands.'))
-  .catch(console.error);
+  .then(() => logger.info('Successfully registered application commands.'))
+  .catch(logger.error);

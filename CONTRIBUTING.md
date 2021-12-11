@@ -5,6 +5,7 @@
 3. Port old Bible verse picker to new bot.
 4. Port help and abount commands to new bot.
 5. Verse of the day command.
+6. Use embeds for verses.
 
 # Non-Programming Todo
 

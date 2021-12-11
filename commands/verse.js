@@ -3,6 +3,7 @@ const referenceParser = require('bible-passage-reference-parser/js/en_bcv_parser
 const logger = require('log4js').getLogger('bot');
 
 const { availableVersions, files, books } = require('../config/bible/config.json');
+const versionList = availableVersions.keys();
 
 const defaultVesrion = 'KJV';
 
@@ -56,7 +57,7 @@ module.exports = {
     }
 
     version = version.toUpperCase();
-    if (!availableVersions.includes(version)) {
+    if (!versionList.includes(version)) {
       version = defaultVesrion;
     }
 

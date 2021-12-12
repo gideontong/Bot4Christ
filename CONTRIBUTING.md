@@ -1,13 +1,9 @@
 # Todo
 
 * Have `log4js` automatically log to a file and archive and compress old logs.
-* The bot should automatically re-deploy commands on first startup.
 * Verse of the day command.
 * Passages.
-* Document and comment code.
 * Make "Open in Bible App" button on verse command open in the selected version of the Bible instead of always KJV.
-* Help command that explains how to use the bot.
-* About command that explains the creator and motivation of the bot.
 * Copyright command that shows the copyright of a specific version of the Bible.
 
 # Non-Programming Todo

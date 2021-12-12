@@ -1,0 +1,37 @@
+{
+  "activity": {
+    "updateInterval": 10,
+    "activities": [
+      {
+        "text": "the throne of God",
+        "options": {
+          "type": "WATCHING"
+        }
+      },
+      {
+        "text": "volleyball ministries",
+        "options": {
+          "type": "PLAYING"
+        }
+      },
+      {
+        "text": "life group olympics",
+        "options": {
+          "type": "COMPETING"
+        }
+      },
+      {
+        "text": "worship songs",
+        "options": {
+          "type": "LISTENING"
+        }
+      },
+      {
+        "text": "pastor's sermons",
+        "options": {
+          "type": "WATCHING"
+        }
+      }
+    ]
+  }
+}

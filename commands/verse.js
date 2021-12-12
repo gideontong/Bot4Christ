@@ -1,9 +1,10 @@
+const { MessageEmbed } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const referenceParser = require('bible-passage-reference-parser/js/en_bcv_parser').bcv_parser;
 const logger = require('log4js').getLogger('bot');
 
 const { availableVersions, files, books } = require('../config/bible/config.json');
-const versionList = availableVersions.keys();
+const versionList = Object.keys(availableVersions);
 
 const defaultVesrion = 'KJV';
 
@@ -49,29 +50,45 @@ module.exports = {
     const chapterString = chapter.toString();
     const verse = interaction.options.getInteger('verse');
     const verseString = verse.toString();
-
+    
     let version = interaction.options.getString('version');
     
     if (!version) {
       version = defaultVesrion;
     }
-
+    
     version = version.toUpperCase();
     if (!versionList.includes(version)) {
       version = defaultVesrion;
     }
-
+    
     logger.info(`Looking up Bible verse ${parsedBook} ${chapterString}:${verseString} ${version}`);
     const filename = files[version];
     const filecode = filename.split('.')[0];
     const { meta, bible } = require(`../config/bible/versions/${files[version]}`);
+    
+    if (book.length == 0 || !(parsedBook in books)) {
+      await interaction.reply({
+        content: 'That isn\'t a valid book of the Bible.',
+        ephemeral: true
+      });
+      return;
+    }
 
     const bookKey = books[parsedBook][filecode];
 
     if (!(chapterString in bible[bookKey])) {
-      await interaction.reply(`That isn't a chapter of ${bookKey}!`);
+      await interaction.reply({
+        content: `That isn't a chapter of ${bookKey}!`,
+        ephemeral: true
+      });
+      return;
     } else if (!(verseString in bible[bookKey][chapterString])) {
-      await interaction.reply(`That isn't a verse in ${bookKey} ${chapterString}!`);
+      await interaction.reply({
+        content: `That isn't a verse in ${bookKey} ${chapterString}!`,
+        ephemeral: true 
+      });
+      return;
     } else {
       const text = bible[bookKey][chapterString][verseString];
       await interaction.reply(text);

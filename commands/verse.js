@@ -1,4 +1,8 @@
-const { MessageEmbed } = require('discord.js');
+const {
+  MessageActionRow,
+  MessageButton,
+  MessageEmbed
+} = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const referenceParser = require('bible-passage-reference-parser/js/en_bcv_parser').bcv_parser;
 const logger = require('log4js').getLogger('bot');
@@ -6,6 +10,7 @@ const logger = require('log4js').getLogger('bot');
 const { availableVersions, files, books } = require('../config/bible/config.json');
 const versionList = Object.keys(availableVersions);
 
+const colors = 0xFFFFFF;
 const defaultVesrion = 'KJV';
 
 function parse(book) {
@@ -91,7 +96,27 @@ module.exports = {
       return;
     } else {
       const text = bible[bookKey][chapterString][verseString];
-      await interaction.reply(text);
+
+      const color = Math.floor(Math.random() * colors);
+      const embed = new MessageEmbed()
+        .setTitle(`${bookKey} ${chapterString}:${verseString}`)
+        .setColor(color)
+        .setDescription(text)
+        .setFooter(meta.fullname);
+      
+      const row = new MessageActionRow()
+        .addComponents(
+          new MessageButton()
+            .setLabel('Open in Bible App')
+            .setURL(`https://bible.com/bible/1/${parsedBook}.${chapterString}.${verseString}.KJV`)
+            .setStyle('LINK'),
+        );
+      
+      await interaction.reply({
+        embeds: [embed],
+        components: [row]
+      });
+      return;
     }
 	},
 };

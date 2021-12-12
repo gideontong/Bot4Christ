@@ -1,13 +1,13 @@
 # Todo
 
-1. Have `log4js` automatically log to a file and archive and compress old logs.
-2. The bot should automatically re-deploy commands on first startup.
-3. Port old Bible verse picker to new bot.
-4. Port help and abount commands to new bot.
-5. Verse of the day command.
-6. Use embeds for verses.
-7. Passages.
-8. Document and comment code.
+* Have `log4js` automatically log to a file and archive and compress old logs.
+* The bot should automatically re-deploy commands on first startup.
+* Port old Bible verse picker to new bot.
+* Port help and abount commands to new bot.
+* Verse of the day command.
+* Passages.
+* Document and comment code.
+* Make "Open in Bible App" button on verse command open in the selected version of the Bible instead of always KJV.
 
 # Non-Programming Todo
 

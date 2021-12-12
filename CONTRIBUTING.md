@@ -2,8 +2,7 @@
 
 * Have `log4js` automatically log to a file and archive and compress old logs.
 * The bot should automatically re-deploy commands on first startup.
-* Port old Bible verse picker to new bot.
-* Port help and abount commands to new bot.
+* Port help and about commands to new bot.
 * Verse of the day command.
 * Passages.
 * Document and comment code.

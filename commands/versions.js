@@ -2,6 +2,7 @@ const { MessageEmbed } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 
 const { availableVersions, files } = require('../config/bible/config.json');
+const languages = require('../config/data/languages.json');
 
 const colors = 0xFFFFFF;
 
@@ -29,9 +30,17 @@ module.exports = {
         return;
       }
 
+      const { meta } = require(`../config/bible/versions/${files[query]}`);
+
       const embed = new MessageEmbed()
         .setTitle(`About the ${query}`)
-        .setColor(color);
+        .setDescription(availableVersions[query])
+        .setColor(color)
+        .addField('Full Name', meta.fullname, false)
+        .addField('Code', meta.version, true)
+        .addField('Language', languages[meta.language].name, true)
+        .addField('Publication Date', `${meta.date}`, true)
+        .setFooter(meta.copyright);
 
       interaction.reply({
         embeds: [embed]

@@ -8,7 +8,6 @@
 * Make "Open in Bible App" button on verse command open in the selected version of the Bible instead of always KJV.
 * Help command that explains how to use the bot.
 * About command that explains the creator and motivation of the bot.
-* Version listing command that shows what versions are available.
 * Copyright command that shows the copyright of a specific version of the Bible.
 
 # Non-Programming Todo

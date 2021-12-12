@@ -56,7 +56,8 @@ module.exports = {
       .setFooter('Use /version CODE to find out more about a specific version.');
 
     interaction.reply({
-      embeds: [embed]
+      embeds: [embed],
+      ephemeral: true
     });
   },
 };

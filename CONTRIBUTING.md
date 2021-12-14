@@ -5,6 +5,7 @@
 * Passages.
 * Make "Open in Bible App" button on verse command open in the selected version of the Bible instead of always KJV.
 * Copyright command that shows the copyright of a specific version of the Bible.
+* Notify bot owner when a new server is joined.
 
 # Non-Programming Todo
 

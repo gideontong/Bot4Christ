@@ -4,7 +4,8 @@
     "fullname": "Da Hawai'i Pidgin Bible",
     "language": "en",
     "date": 2009,
-    "copyright": "Copyright \u00a9 2009-2010 Wycliffe Bible Translators"
+    "copyright": "Copyright \u00a9 2009-2010 Wycliffe Bible Translators",
+    "bibleAppId": "76"
   },
   "bible": {
     "Da Start": {

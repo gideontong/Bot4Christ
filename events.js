@@ -1,4 +1,7 @@
+// NOTE: The list of supported events is hardcoded to prevent
+// path traversal and other string attacks.
 const supportedEvents = [
+  'guildCreate',
   'interactionCreate'
 ];
 

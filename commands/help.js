@@ -29,15 +29,13 @@ module.exports = {
       switch (query) {
         case 'verse':
           embed.setDescription([
-            'Use the verse command to find a verse in the Bible! Simply',
-            'provide the book, chapter, and verse. If you want a specific',
-            'version, you can provide that as well!'
+            'Use the verse command to find a verse in the Bible! Simply provide the book,',
+            'chapter, and verse. If you want a specific version, you can provide that as well!'
           ].join(' '));
           break;
         case 'versions':
           embed.setDescription([
-            'You can learn about different versions of the Bible',
-            'available through Bot4Christ.'
+            'You can learn about different versions of the Bible available through Bot4Christ.'
           ].join(' '));
           break;
         default:
@@ -54,19 +52,16 @@ module.exports = {
 
     embed.setTitle('About Bot4Christ')
       .setDescription([
-        'Bot4Christ is a Discord bot for Christian servers that allows',
-        'you to share in the Word of God with your brothers and sisters',
-        'in Christ.'
+        'Bot4Christ is a Discord bot for Christian servers that allows you to share in the Word', 
+        'of God with your brothers and sisters in Christ.'
       ].join(' '))
       .addField('Commands', [
-        'Use Discord Slash Commands to share in the Word! You can try',
-        'commands like `/verse`. If you need help, try using help commands',
-        'to learn more about each command.'
+        'Use Discord Slash Commands to share in the Word! You can try commands like `/verse`. If',
+        'you need help, try using help commands to learn more about each command.'
       ].join(' '))
       .addField('Developer', [
-        'If you have any feature requests or want to get in contact',
-        'with the developer, please contact Gideon Tong at',
-        'gideon@gideontong.com.'
+        'If you have any feature requests or want to get in contact with the developer, please',
+        'contact Gideon Tong at gideon@gideontong.com.'
       ].join(' '));
 
       interaction.reply({

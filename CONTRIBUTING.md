@@ -1,11 +1,13 @@
 # Todo
 
+* Bug: new guild notification doesn't show the owner's username correctly
 * Have `log4js` automatically log to a file and archive and compress old logs.
 * Verse of the day command.
 * Passages.
 * Make "Open in Bible App" button on verse command open in the selected version of the Bible instead of always KJV.
 * Copyright command that shows the copyright of a specific version of the Bible.
-* Notify bot owner when a new server is joined.
+* Add ability to find and attach an invite to newly joined guild notification (if possible)
+* Add server icon to newly joined guild notification
 
 # Non-Programming Todo
 

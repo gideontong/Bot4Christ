@@ -104,11 +104,12 @@ module.exports = {
         .setDescription(text)
         .setFooter(meta.fullname);
       
+      const appId = meta.bibleAppId ? meta.bibleAppId : '1';
       const row = new MessageActionRow()
         .addComponents(
           new MessageButton()
             .setLabel('Open in Bible App')
-            .setURL(`https://bible.com/bible/1/${parsedBook}.${chapterString}.${verseString}.KJV`)
+            .setURL(`https://bible.com/bible/${appId}/${parsedBook}.${chapterString}.${verseString}`)
             .setStyle('LINK'),
         );
       

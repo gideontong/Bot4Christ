@@ -3,7 +3,6 @@ const humanize = require('humanize-duration');
 const logger = require('log4js').getLogger('bot');
 
 const { sendToChannel } = require('../lib/DiscordInteractions');
-
 const { loggingChannel } = require('../config/config.json');
 
 const colors = 0xFFFFFF;
@@ -52,7 +51,9 @@ module.exports = async (guild) => {
               .addField('Boosts', guild.premiumSubscriptionCount.toString(), true)
               .setFooter(`Created ${creationTime} ago`);
 
-            sendToChannel(client, loggingChannel, embed);
+            sendToChannel(client, loggingChannel, {
+              embeds: [embed]
+            });
           })
           .catch((err) => logger.error(err));
       })
@@ -60,7 +61,9 @@ module.exports = async (guild) => {
   } else {
     embed.setDescription('Cannot retrieve information about the server as it is currently offline.');
 
-    sendToChannel(client, loggingChannel, embed);
+    sendToChannel(client, loggingChannel, {
+      embeds: [embed]
+    });
   }
 
 

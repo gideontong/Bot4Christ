@@ -6,6 +6,7 @@
 * Passages.
 * Add ability to find and attach an invite to newly joined guild notification (if possible)
 * Add server icon to newly joined guild notification
+* Leaving a guild notification
 
 # Non-Programming Todo
 

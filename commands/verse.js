@@ -4,24 +4,14 @@ const {
   MessageEmbed
 } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const referenceParser = require('bible-passage-reference-parser/js/en_bcv_parser').bcv_parser;
 const logger = require('log4js').getLogger('bot');
 
+const { parseBook } = require('../lib/Bible');
 const { availableVersions, files, books } = require('../config/bible/config.json');
 const versionList = Object.keys(availableVersions);
 
 const colors = 0xFFFFFF;
 const defaultVesrion = 'KJV';
-
-function parse(book) {
-  let parser = new referenceParser;
-  let osis = parser.parse(`${book} 1:1`).osis();
-  let reference = osis.split('.');
-  if (reference.length > 0) {
-    return reference[0];
-  }
-  return undefined;
-}
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -49,7 +39,7 @@ module.exports = {
     ),
 	async execute(interaction) {
     const book = interaction.options.getString('book');
-    const parsedBook = parse(`${book} 1:1`);
+    const parsedBook = parseBook(`${book} 1:1`);
 
     const chapter = interaction.options.getInteger('chapter');
     const chapterString = chapter.toString();

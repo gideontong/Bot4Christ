@@ -1,5 +1,10 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 
+const { parseBook } = require('../lib/Bible');
+const { availableVersions, files, books } = require('../config/bible/config.json');
+
+const defaultVersion = 'KJV';
+
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('passage')
@@ -40,5 +45,34 @@ module.exports = {
         .setRequired(true)
     ),
   async execute(interaction) {
+    let startBook = interaction.options.getString('start-book');
+    startBook = parseBook(`${startBook} 1:1`);
+
+    const startChapter = interaction.options.getString('start-chapter');
+    const startVerse = interaction.options.getString('start-verse');
+
+    let endBook = interaction.options.getString('end-book');
+    endBook = parseBook(`${endBook} 1:1`);
+
+    const endChapter = interaction.options.getString('end-chapter');
+    const endVerse = interaction.options.getString('end-verse');
+
+    let version = interaction.options.getString('version');
+    if (!version) {
+      version = defaultVersion;
+    }
+
+    if (startBook.length == 0 || endBook.length == 0
+      || !(startBook in books) || !(endBook in books)) {
+        await interaction.reply({
+          content: 'Your start and end books need to be valid books of the Bible!',
+          ephemeral: true
+        });
+        return;
+      }
+    
+    // TODO: Check if end book comes after start book
+
+    // TODO: Check that the length is less than 20 verses long
   },
 }

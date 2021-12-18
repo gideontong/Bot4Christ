@@ -1,15 +1,18 @@
+const { MessageEmbed } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const logger = require('log4js').getLogger('bot');
 
 const { parseBook, Verse } = require('../lib/Bible');
 const { availableVersions, files, books } = require('../config/bible/config.json');
 
+const colors = 0xFFFFFF;
 const defaultVersion = 'KJV';
 const maxVerses = 20;
 
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('passage')
-    .setDescription('Get a passage from the Bible (max 20 verses)')
+    .setDescription(`Get a passage from the Bible (max ${maxVerses} verses)`)
     .addStringOption(option =>
       option.setName('start-book')
         .setDescription('Book of the Bible to start with')
@@ -43,10 +46,10 @@ module.exports = {
     .addStringOption(option =>
       option.setName('version')
         .setDescription('Bible version or language (default is KJV)')
-        .setRequired(true)
+        .setRequired(false)
     ),
   async execute(interaction) {
-    // TODO: Delay sending a reply using the Discord interaction intention
+    await interaction.deferReply();
 
     // Get all the variables and parse them
     let startBook = interaction.options.getString('start-book');
@@ -73,20 +76,24 @@ module.exports = {
       }
     }
     const versionFile = files[version];
+    version = versionFile.split('.')[0];
 
     if (startBook.length == 0 || endBook.length == 0
       || !(startBook in books) || !(endBook in books)) {
-        await interaction.reply({
-          content: 'Your start and end books need to be valid books of the Bible!',
-          ephemeral: true
-        });
-        return;
-      }
-    
+      await interaction.editReply({
+        content: 'Your start and end books need to be valid books of the Bible!',
+        ephemeral: true
+      });
+      return;
+    }
+
     // TODO: Check if end book comes after start book
 
     // Create array of verses
-    const { meta, bible } = require(`../config/bible/versions/${versionFile}.json`);
+    const { meta, bible } = require(`../config/bible/versions/${versionFile}`);
+
+    startBook = books[startBook][version];
+    endBook = books[endBook][version];
 
     version = meta.version;
     let book = startBook;
@@ -101,15 +108,42 @@ module.exports = {
 
     let verses = new Array();
 
-    while (verses.length <= maxVerses
-      && (book != endBook
-        || chapter != endChapter
-        || verse != endVerse)) {
-          let bookName = books[book][version];
+    while (verses.length <= maxVerses && !(book == endBook && chapter == endChapter && verse == endVerse)) {
+      let verseText = bible[book][chapter][version];
+      let verseObject = new Verse(book, chapter, verse, verseText);
+      verses.push(verseObject);
 
-          let verseText = bible[bookName][book][version];
-        }
+      verseIndex++;
+      if (verseIndex >= verseKeys.length) {
+        verseIndex = 0;
+        chapterIndex++;
+      }
 
-    // TODO: Check that the length is less than 20 verses long
+      if (chapterIndex >= chapterKeys.length) {
+        chapterIndex = 0;
+        bookIndex++;
+      }
+
+      logger.info(`${book} ${bookIndex} ${chapter} ${chapterIndex} ${verse} ${verseIndex}`);
+      book = bookNames[bookIndex];
+      chapterKeys = Object.keys(bible[book]);
+      chapter = chapterKeys[chapterIndex];
+      verseKeys = Object.keys(bible[book][chapter]);
+      verse = verseKeys[verseIndex];
+    }
+
+    // TODO: Generate paginated embed of verses
+    // Generate and send embed of verses
+    const embed = new MessageEmbed()
+      .setTitle(`${startBook} ${startChapter}:${startVerse} - ${book} ${chapter}:${verse}`)
+      .setColor(Math.floor(Math.random() * colors));
+
+    for (let verseObject of verses) {
+      embed.addField(`Verse ${verseObject.verse}`, verseObject.text);
+    }
+
+    await interaction.editReply({
+      embeds: [embed]
+    });
   },
 }

@@ -1,11 +1,12 @@
 # Todo
 
 * Bug: new guild notification doesn't show the owner's username correctly
-* Have `log4js` automatically log to a file and archive and compress old logs.
-* Verse of the day command.
-* Passages.
+* Have `log4js` automatically log to a file and archive and compress old logs
+* Verse of the day command
+* Passages
 * Add ability to find and attach an invite to newly joined guild notification (if possible)
 * Add server icon to newly joined guild notification
+* Statistics command to show bot statistics publicly
 
 # Non-Programming Todo
 

@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 
-const { parseBook } = require('../lib/Bible');
+const { parseBook, Verse } = require('../lib/Bible');
 const { availableVersions, files, books } = require('../config/bible/config.json');
 
 const defaultVersion = 'KJV';
@@ -83,12 +83,19 @@ module.exports = {
     
     // TODO: Check if end book comes after start book
 
+    // Create array of verses
     const { meta, bible } = require(`../config/bible/versions/${versionFile}.json`);
-    
+
     version = meta.version;
     let book = startBook;
+    let bookNames = Object.keys(bible);
+    let bookIndex = bookNames.indexOf(book);
     let chapter = startChapter;
+    let chapterKeys = Object.keys(bible[book]);
+    let chapterIndex = chapterKeys.indexOf(chapter);
     let verse = startVerse;
+    let verseKeys = Object.keys(bible[book][chapter]);
+    let verseIndex = verseKeys.indexOf(verse);
 
     let verses = new Array();
 
@@ -98,7 +105,7 @@ module.exports = {
         || verse != endVerse)) {
           let bookName = books[book][version];
 
-          // TODO: Push each verse into the array
+          let verseText = bible[bookName][book][version];
         }
 
     // TODO: Check that the length is less than 20 verses long

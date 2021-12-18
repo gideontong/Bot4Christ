@@ -4,6 +4,7 @@ const { parseBook } = require('../lib/Bible');
 const { availableVersions, files, books } = require('../config/bible/config.json');
 
 const defaultVersion = 'KJV';
+const maxVerses = 20;
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -60,7 +61,15 @@ module.exports = {
     let version = interaction.options.getString('version');
     if (!version) {
       version = defaultVersion;
+    } else {
+      version = version.toUpperCase();
+
+      if (!(version in files)) {
+        version = defaultVersion;
+      }
     }
+
+    const versionFile = files[version];
 
     if (startBook.length == 0 || endBook.length == 0
       || !(startBook in books) || !(endBook in books)) {
@@ -72,6 +81,24 @@ module.exports = {
       }
     
     // TODO: Check if end book comes after start book
+
+    const { meta, bible } = require(`../config/bible/versions/${versionFile}.json`);
+    
+    version = meta.version;
+    let book = startBook;
+    let chapter = startChapter;
+    let verse = startVerse;
+
+    let verses = new Array();
+
+    while (verses.length <= maxVerses
+      && (book != endBook
+        || chapter != endChapter
+        || verse != endVerse)) {
+          let bookName = books[book][version];
+
+          // TODO: Push each verse into the array
+        }
 
     // TODO: Check that the length is less than 20 verses long
   },

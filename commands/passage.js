@@ -46,6 +46,7 @@ module.exports = {
         .setRequired(true)
     ),
   async execute(interaction) {
+    // Get all the variables and parse them
     let startBook = interaction.options.getString('start-book');
     startBook = parseBook(`${startBook} 1:1`);
 
@@ -58,6 +59,7 @@ module.exports = {
     const endChapter = interaction.options.getString('end-chapter');
     const endVerse = interaction.options.getString('end-verse');
 
+    // Verify the version is valid and get the Bible file
     let version = interaction.options.getString('version');
     if (!version) {
       version = defaultVersion;
@@ -68,7 +70,6 @@ module.exports = {
         version = defaultVersion;
       }
     }
-
     const versionFile = files[version];
 
     if (startBook.length == 0 || endBook.length == 0

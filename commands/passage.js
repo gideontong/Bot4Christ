@@ -46,6 +46,8 @@ module.exports = {
         .setRequired(true)
     ),
   async execute(interaction) {
+    // TODO: Delay sending a reply using the Discord interaction intention
+
     // Get all the variables and parse them
     let startBook = interaction.options.getString('start-book');
     startBook = parseBook(`${startBook} 1:1`);

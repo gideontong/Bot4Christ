@@ -4,10 +4,18 @@ const logger = require('log4js').getLogger('bot');
 
 const { parseBook, Verse } = require('../lib/Bible');
 const { availableVersions, files, books } = require('../config/bible/config.json');
+const { superscripts } = require('../config/data/characters.json');
 
 const colors = 0xFFFFFF;
 const defaultVersion = 'KJV';
 const maxVerses = 20;
+
+function interpretSuperscript(str) {
+  for (const [key, value] of Object.entries(superscripts)) {
+    str.replace(key, value);
+  }
+  return str;
+}
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -90,6 +98,7 @@ module.exports = {
     // TODO: Check if end book comes after start book
 
     // Create array of verses
+    logger.info(`Looking up passage ${startBook} ${startChapter}:${startVerse} - ${endBook} ${endChapter}:${endVerse} ${version}`);
     const { meta, bible } = require(`../config/bible/versions/${versionFile}`);
 
     startBook = books[startBook][version];
@@ -108,10 +117,10 @@ module.exports = {
 
     let verses = new Array();
 
-    while (verses.length <= maxVerses && !(book == endBook && chapter == endChapter && verse == endVerse)) {
-      let verseText = bible[book][chapter][version];
-      let verseObject = new Verse(book, chapter, verse, verseText);
-      verses.push(verseObject);
+    let verseText = bible[book][chapter][verse];
+    let verseObject = new Verse(book, chapter, verse, verseText);
+    verses.push(verseObject);
+    do {
 
       verseIndex++;
       if (verseIndex >= verseKeys.length) {
@@ -124,23 +133,29 @@ module.exports = {
         bookIndex++;
       }
 
-      logger.info(`${book} ${bookIndex} ${chapter} ${chapterIndex} ${verse} ${verseIndex}`);
       book = bookNames[bookIndex];
       chapterKeys = Object.keys(bible[book]);
       chapter = chapterKeys[chapterIndex];
       verseKeys = Object.keys(bible[book][chapter]);
       verse = verseKeys[verseIndex];
-    }
+
+      verseText = bible[book][chapter][verse];
+      verseObject = new Verse(book, chapter, verse, verseText);
+      verses.push(verseObject);
+    } while (verses.length <= maxVerses && !(book == endBook && chapter == endChapter && verse == endVerse));
 
     // TODO: Generate paginated embed of verses
     // Generate and send embed of verses
+    let verseString = new String();
+    for (let verseObject of verses) {
+      verseString += interpretSuperscript(verseObject.getVerse()) + verseObject.getText() + ' ';
+    }
+
     const embed = new MessageEmbed()
       .setTitle(`${startBook} ${startChapter}:${startVerse} - ${book} ${chapter}:${verse}`)
-      .setColor(Math.floor(Math.random() * colors));
+      .setColor(Math.floor(Math.random() * colors))
+      .setFooter(meta.fullname);
 
-    for (let verseObject of verses) {
-      embed.addField(`Verse ${verseObject.verse}`, verseObject.text);
-    }
 
     await interaction.editReply({
       embeds: [embed]

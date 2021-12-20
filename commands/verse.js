@@ -57,7 +57,7 @@ module.exports = {
       version = defaultVesrion;
     }
     
-    logger.info(`Looking up Bible verse ${parsedBook} ${chapterString}:${verseString} ${version}`);
+    logger.info(`Looking up verse ${parsedBook} ${chapterString}:${verseString} ${version}`);
     const filename = files[version];
     const filecode = filename.split('.')[0];
     const { meta, bible } = require(`../config/bible/versions/${files[version]}`);

@@ -7,6 +7,7 @@
 * Add ability to find and attach an invite to newly joined guild notification (if possible)
 * Add server icon to newly joined guild notification
 * Statistics command to show bot statistics publicly
+* Open in Bible app button for passages
 
 # Non-Programming Todo
 

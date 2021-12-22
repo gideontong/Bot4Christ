@@ -56,8 +56,8 @@ module.exports = {
         'of God with your brothers and sisters in Christ.'
       ].join(' '))
       .addField('Commands', [
-        'Use Discord Slash Commands to share in the Word! You can try commands like `/verse`. If',
-        'you need help, try using help commands to learn more about each command.'
+        'Use Discord Slash Commands to share in the Word! You can try commands like `/verse` or',
+        '`/passage`. If you need help, try using help commands to learn more about each command.'
       ].join(' '))
       .addField('Developer', [
         'If you have any feature requests or want to get in contact with the developer, please',

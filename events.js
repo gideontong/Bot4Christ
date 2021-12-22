@@ -2,6 +2,7 @@
 // path traversal and other string attacks.
 const supportedEvents = [
   'guildCreate',
+  'guildDelete',
   'interactionCreate'
 ];
 

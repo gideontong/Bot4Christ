@@ -1,4 +1,8 @@
-const { MessageEmbed } = require('discord.js');
+const {
+  MessageActionRow,
+  MessageButton,
+  MessageEmbed
+} = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const logger = require('log4js').getLogger('bot');
 
@@ -96,7 +100,7 @@ module.exports = {
     let verseText = bible[book][chapter][verse];
     let verseObject = new Verse(book, chapter, verse, verseText);
     verses.push(verseObject);
-    do {
+    while (verses.length < maxVerses && verse != endVerse) {
       verseIndex++;
       verse = verseKeys[verseIndex];
       if (verseIndex >= verseKeys.length) {
@@ -106,23 +110,35 @@ module.exports = {
       verseText = bible[book][chapter][verse];
       verseObject = new Verse(book, chapter, verse, verseText);
       verses.push(verseObject);
-    } while (verses.length <= maxVerses && verse != endVerse);
+    }
 
-    // TODO: Generate paginated embed of verses
     // Generate and send embed of verses
     let verseString = new String();
     for (let verseObject of verses) {
       verseString += interpretSuperscript(verseObject.getVerse()) + verseObject.getText() + ' ';
     }
 
+    const appId = meta.bibleAppId ? meta.bibleAppId : '1';
     const embed = new MessageEmbed()
       .setTitle(`${book} ${chapter}:${startVerse}-${verse}`)
       .setDescription(verseString)
       .setColor(Math.floor(Math.random() * colors))
       .setFooter(meta.fullname);
+    const row = new MessageActionRow()
+      .addComponents(
+        new MessageButton()
+          .setLabel('Open in Bible App')
+          .setURL(`https://bible.com/bible/${appId}/${book}.${chapter}.${startVerse}-${verse}`)
+          .setStyle('LINK'),
+      );
+
+    if (endVerse - startVerse + 1 > maxVerses) {
+      embed.addField('Warning', `You cannot request more than ${maxVerses} verses at a time.`);
+    }
 
     await interaction.editReply({
-      embeds: [embed]
+      embeds: [embed],
+      components: [row]
     });
   },
 }

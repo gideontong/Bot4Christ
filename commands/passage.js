@@ -11,8 +11,9 @@ const defaultVersion = 'KJV';
 const maxVerses = 20;
 
 function interpretSuperscript(str) {
+  str = new String(str);
   for (const [key, value] of Object.entries(superscripts)) {
-    str.replace(key, value);
+    str = str.replace(key, value);
   }
   return str;
 }
@@ -22,31 +23,21 @@ module.exports = {
     .setName('passage')
     .setDescription(`Get a passage from the Bible (max ${maxVerses} verses)`)
     .addStringOption(option =>
-      option.setName('start-book')
-        .setDescription('Book of the Bible to start with')
+      option.setName('book')
+        .setDescription('Book of the Bible')
         .setRequired(true)
     )
-    .addStringOption(option =>
-      option.setName('start-chapter')
-        .setDescription('Chapter of the Bible to start with')
+    .addIntegerOption(option =>
+      option.setName('chapter')
+        .setDescription('Chapter of the Bible')
         .setRequired(true)
     )
-    .addStringOption(option =>
+    .addIntegerOption(option =>
       option.setName('start-verse')
         .setDescription('Verse of the Bible to start with')
         .setRequired(true)
     )
-    .addStringOption(option =>
-      option.setName('end-book')
-        .setDescription('Book of the Bible to end with')
-        .setRequired(true)
-    )
-    .addStringOption(option =>
-      option.setName('end-chapter')
-        .setDescription('Chapter of the Bible to end with')
-        .setRequired(true)
-    )
-    .addStringOption(option =>
+    .addIntegerOption(option =>
       option.setName('end-verse')
         .setDescription('Verse of the Bible to end with')
         .setRequired(true)
@@ -60,17 +51,12 @@ module.exports = {
     await interaction.deferReply();
 
     // Get all the variables and parse them
-    let startBook = interaction.options.getString('start-book');
-    startBook = parseBook(`${startBook} 1:1`);
+    let book = interaction.options.getString('book');
+    book = parseBook(`${book} 1:1`);
 
-    const startChapter = interaction.options.getString('start-chapter');
-    const startVerse = interaction.options.getString('start-verse');
-
-    let endBook = interaction.options.getString('end-book');
-    endBook = parseBook(`${endBook} 1:1`);
-
-    const endChapter = interaction.options.getString('end-chapter');
-    const endVerse = interaction.options.getString('end-verse');
+    const chapter = interaction.options.getInteger('chapter');
+    const startVerse = interaction.options.getInteger('start-verse');
+    const endVerse = interaction.options.getInteger('end-verse');
 
     // Verify the version is valid and get the Bible file
     let version = interaction.options.getString('version');
@@ -86,34 +72,24 @@ module.exports = {
     const versionFile = files[version];
     version = versionFile.split('.')[0];
 
-    if (startBook.length == 0 || endBook.length == 0
-      || !(startBook in books) || !(endBook in books)) {
+    if (book.length == 0 || !(book in books)) {
       await interaction.editReply({
-        content: 'Your start and end books need to be valid books of the Bible!',
+        content: 'The book you choose needs to be a book of the Bible!',
         ephemeral: true
       });
       return;
     }
 
-    // TODO: Check if end book comes after start book
-
     // Create array of verses
-    logger.info(`Looking up passage ${startBook} ${startChapter}:${startVerse} - ${endBook} ${endChapter}:${endVerse} ${version}`);
+    logger.info(`Looking up passage ${book} ${chapter}:${startVerse}-${endVerse} ${version}`);
     const { meta, bible } = require(`../config/bible/versions/${versionFile}`);
 
-    startBook = books[startBook][version];
-    endBook = books[endBook][version];
+    book = books[book][version];
 
     version = meta.version;
-    let book = startBook;
-    let bookNames = Object.keys(bible);
-    let bookIndex = bookNames.indexOf(book);
-    let chapter = startChapter;
-    let chapterKeys = Object.keys(bible[book]);
-    let chapterIndex = chapterKeys.indexOf(chapter);
     let verse = startVerse;
     let verseKeys = Object.keys(bible[book][chapter]);
-    let verseIndex = verseKeys.indexOf(verse);
+    let verseIndex = new String(verse - 1);
 
     let verses = new Array();
 
@@ -121,28 +97,16 @@ module.exports = {
     let verseObject = new Verse(book, chapter, verse, verseText);
     verses.push(verseObject);
     do {
-
       verseIndex++;
-      if (verseIndex >= verseKeys.length) {
-        verseIndex = 0;
-        chapterIndex++;
-      }
-
-      if (chapterIndex >= chapterKeys.length) {
-        chapterIndex = 0;
-        bookIndex++;
-      }
-
-      book = bookNames[bookIndex];
-      chapterKeys = Object.keys(bible[book]);
-      chapter = chapterKeys[chapterIndex];
-      verseKeys = Object.keys(bible[book][chapter]);
       verse = verseKeys[verseIndex];
+      if (verseIndex >= verseKeys.length) {
+        break;
+      }
 
       verseText = bible[book][chapter][verse];
       verseObject = new Verse(book, chapter, verse, verseText);
       verses.push(verseObject);
-    } while (verses.length <= maxVerses && !(book == endBook && chapter == endChapter && verse == endVerse));
+    } while (verses.length <= maxVerses && verse != endVerse);
 
     // TODO: Generate paginated embed of verses
     // Generate and send embed of verses
@@ -152,10 +116,10 @@ module.exports = {
     }
 
     const embed = new MessageEmbed()
-      .setTitle(`${startBook} ${startChapter}:${startVerse} - ${book} ${chapter}:${verse}`)
+      .setTitle(`${book} ${chapter}:${startVerse}-${verse}`)
+      .setDescription(verseString)
       .setColor(Math.floor(Math.random() * colors))
       .setFooter(meta.fullname);
-
 
     await interaction.editReply({
       embeds: [embed]

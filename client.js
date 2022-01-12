@@ -1,45 +1,37 @@
-// Local config files
-const { prefix, activities, activityUpdateInterval } = require('./config/config.json');
-const { token } = require('./config/secrets.json');
-
 // Dependencies
-const Discord = require('discord.js');
+const { Client, Collection, Intents } = require('discord.js');
+const fs = require('fs');
 const log4js = require('log4js');
-const client = new Discord.Client();
 
-function createLogName() {
-    let date = new Date();
-    return date.getFullYear() + '.' + (date.getMonth() + 1) + '.' + date.getDate() + '.' +
-        date.getHours() + '.' + date.getMinutes() + '.' + date.getSeconds() + '.log';
+// Configuration
+const { activity } = require('./config/config.json');
+const { token } = require('./config/secrets.json');
+const loggingConfig = require('./config/logging.json');
+
+// Global Configuration
+log4js.configure(loggingConfig);
+
+const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+const logger = log4js.getLogger('bot');
+
+// Bot Setup
+client.commands = new Collection();
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+
+for (const file of commandFiles) {
+  const command = require(`./commands/${file}`);
+  client.commands.set(command.data.name, command);
 }
-
-log4js.configure({
-    appenders: {
-        console: {
-            type: 'console'
-        },
-        file: {
-            type: 'file',
-            filename: `logs/${createLogName()}`
-        }
-    },
-    categories: {
-        default: {
-            appenders: ['console', 'file'],
-            level: 'info'
-        }
-    }
-});
-const log = log4js.getLogger('church');
 
 require('./events.js')(client);
 
-client.on('ready', () => {
-    log.info(`The bot has begun startup as ${client.user.tag} on prefix ${prefix}`);
-    setInterval(() => {
-        const index = Math.floor(Math.random() * activities.length);
-        client.user.setActivity(activities[index].text, activities[index].options);
-    }, activityUpdateInterval * 1000);
+client.once('ready', () => {
+  logger.info(`Logged in as ${client.user.tag}!`);
+
+  setInterval(() => {
+    const idx = Math.floor(Math.random() * activity.activities.length);
+    client.user.setActivity(activity.activities[idx].text, activity.activities[idx].options);
+  }, activity.updateInterval * 1000);
 });
 
 client.login(token);

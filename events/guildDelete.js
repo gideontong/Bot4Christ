@@ -1,25 +1,34 @@
-const { logger } = require('../config/config.json');
 const { MessageEmbed } = require('discord.js');
-const log = require('log4js').getLogger('church');
+const humanize = require('humanize-duration');
+const logger = require('log4js').getLogger('bot');
 
-module.exports = async guild => {
-    log.info(`Left guild ${guild.name}`);
-    try {
-        if (guild.available) {
-            let loggerGuild = guild.client.guilds.resolve(logger.guild);
-            if (loggerGuild) {
-                let loggerChannel = loggerGuild.channels.resolve(logger.channel);
-                if (loggerChannel && loggerChannel.type == 'text') {
-                    const guildNotifcation = new MessageEmbed()
-                        .setAuthor(guild.owner.user.tag, guild.owner.user.displayAvatarURL())
-                        .setTitle(`Left server ${guild.name}`)
-                        .setDescription(`Has ${guild.memberCount} members and was originally created on ${guild.createdAt}`)
-                        .setFooter(`Originally joined at ${guild.joinedAt}`);
-                    loggerChannel.send(guildNotifcation);
-                }
-            }
-        }
-    } catch (err) {
-        log.error(`While trying to emite a guildDelete I got ${err}`);
-    }
+const { sendToChannel } = require('../lib/DiscordInteractions');
+const { loggingChannel } = require('../config/config.json');
+
+const colors = 0xFFFFFF;
+
+module.exports = async (guild) => {
+  try {
+    logger.info(`Left guild ${guild.name}`);
+
+    const client = guild.client;
+
+    const timeDifference = new Date() - guild.joinedAt;
+    const joinedTime = humanize(timeDifference, {
+      largest: 2,
+      round: true
+    });
+
+    const embed = new MessageEmbed()
+      .setTitle(`Left server: ${guild.name}`)
+      .setColor(Math.floor(Math.random() * colors))
+      .addField('Users Lost', guild.memberCount.toString(), true)
+      .setFooter(`In server for ${joinedTime}`);
+
+    sendToChannel(client, loggingChannel, {
+      embeds: [embed]
+    });
+  } catch (err) {
+    logger.error(err);
+  }
 }

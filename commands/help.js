@@ -1,27 +1,71 @@
-const { prefix } = require('../config/config.json');
-const { availableVersions } = require('../config/meta/bible.json');
 const { MessageEmbed } = require('discord.js');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 
-module.exports = async (bot, msg, args) => {
-    const embed = new MessageEmbed()
-    if (args.length > 0 && args[0].toLowerCase().startsWith('version')) {
-        versionList = '';
-        for (let version of availableVersions) {
-            versionList += version + ', ';
-        }
-        versionList = versionList.substring(0, versionList.length - 2);
-        embed.setAuthor(bot.user.username, bot.user.avatarURL)
-            .setDescription("Here's the list of Bible version codes I can currently look at for you.")
-            .addField(`Multilanguage:`, versionList, false)
-            .setFooter(`${bot.user.username} v${process.env.npm_package_version} Help Menu`);
-    } else {
-        embed.setAuthor(bot.user.username, bot.user.avatarURL)
-            .setDescription(`Need a bit of help? ${bot.user.username} is here to help you!`)
-            .addField(`Get a Bible verse!`, `\`${prefix}verse Genesis 1:1 VERSION\` shows you a Bible verse. You can even include information like the Bible version, and passages are coming soon! To see a list of supported versions, say \`${prefix}help versions\`!\nIf you don't put a version, you'll get the default version. Also try searching passages of the Bible!`, false)
-            .addField(`See current COVID-19 cases:`, `\`${prefix}cases\` tells you the current number of cases in Ventura.`, false)
-            .addField(`More Commands`, `\`${prefix}about\` tells you about the bot, \`${prefix}creator\` tells you about the creator, and \`${prefix}copyright\` tells you about copyright.`, false)
-            .setFooter(`${bot.user.username} v${process.env.npm_package_version} Help Menu`)
-            .setColor(0xed1c24);
+const logger = require('log4js').getLogger('bot');
+
+const colors = 0xFFFFFF;
+
+module.exports = {
+  data: new SlashCommandBuilder()
+    .setName('help')
+    .setDescription('Get help and learn about Bot4Christ!')
+    .addStringOption(option => 
+      option.setName('command')
+        .setDescription('The Bot4Christ command you need help with')
+        .setRequired(false)
+        .addChoice('verse', 'verse')
+        .addChoice('versions', 'versions')
+    ),
+  async execute(interaction) {
+    const query = interaction.options.getString('command');
+    const color = Math.floor(Math.random() * colors);
+    
+    let embed = new MessageEmbed()
+      .setColor(color);
+
+    if (query) {
+      embed.setTitle(`Command Help: ${query}`)
+
+      switch (query) {
+        case 'verse':
+          embed.setDescription([
+            'Use the verse command to find a verse in the Bible! Simply provide the book,',
+            'chapter, and verse. If you want a specific version, you can provide that as well!'
+          ].join(' '));
+          break;
+        case 'versions':
+          embed.setDescription([
+            'You can learn about different versions of the Bible available through Bot4Christ.'
+          ].join(' '));
+          break;
+        default:
+          embed.setDescription('Something went wrong!');
+          logger.error(`On help command, user provided ${query} which was not a valid query!`);
+      }
+
+      interaction.reply({
+        embeds: [embed],
+        ephemeral: true
+      });
+      return;
     }
-    msg.channel.send(embed)
-}
+
+    embed.setTitle('About Bot4Christ')
+      .setDescription([
+        'Bot4Christ is a Discord bot for Christian servers that allows you to share in the Word', 
+        'of God with your brothers and sisters in Christ.'
+      ].join(' '))
+      .addField('Commands', [
+        'Use Discord Slash Commands to share in the Word! You can try commands like `/verse` or',
+        '`/passage`. If you need help, try using help commands to learn more about each command.'
+      ].join(' '))
+      .addField('Developer', [
+        'If you have any feature requests or want to get in contact with the developer, please',
+        'contact Gideon Tong at gideon@gideontong.com.'
+      ].join(' '));
+
+      interaction.reply({
+        embeds: [embed]
+      });
+  },
+};

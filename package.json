@@ -1,35 +1,50 @@
 {
   "name": "bot4christ",
-  "version": "2.4.0",
-  "description": "This is a specialized Discord bot for the Chinese Christian Church of Thousand Oaks's Act4Christ youth group Discord server. It includes moderation queue features as well as empowers people to read the Bible",
-  "main": "bot.js",
+  "version": "3.0.0",
+  "description": "A Christian Discord bot with verse lookup, devotional, and other interactive features.",
+  "keywords": [
+    "bible",
+    "christian",
+    "jesus"
+  ],
+  "homepage": "https://github.com/gideontong/Bot4Christ",
+  "bugs": {
+    "url": "https://github.com/gideontong/Bot4Christ/issues",
+    "email": "gideon@gideontong.com"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Gideon Tong",
+    "email": "gideon@gideontong.com",
+    "url": "https://gideontong.com"
+  },
+  "funding": [
+    {
+      "type": "individual",
+      "url": "https://ko-fi.com/gideontong"
+    },
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/gideontong"
+    }
+  ],
   "scripts": {
     "start": "node client.js",
-    "dev": "node client.js",
-    "test": "jest"
+    "deploy": "node deployment.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gideontong/Bot4Christ.git"
-  },
-  "keywords": [
-    "Christian",
-    "Discord",
-    "bot"
-  ],
-  "author": "Gideon Tong <gideon@gideontong.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/gideontong/Bot4Christ/issues"
-  },
-  "homepage": "https://christalive.online",
   "dependencies": {
+    "@discordjs/rest": "^0.1.0-canary.0",
     "bible-passage-reference-parser": "^2.0.1",
-    "discord.js": "^12.2.0",
-    "log4js": "^6.3.0",
-    "seedrandom": "^3.0.5"
+    "discord-api-types": "^0.25.2",
+    "discord.js": "^13.3.1",
+    "humanize-duration": "^3.27.1",
+    "log4js": "^6.3.0"
   },
   "devDependencies": {
-    "jest": "^26.2.1"
-  }
+    "eslint": "^8.4.1"
+  },
+  "os": [
+    "!darwin"
+  ],
+  "private": true
 }

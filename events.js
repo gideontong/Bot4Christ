@@ -1,6 +1,15 @@
+// NOTE: The list of supported events is hardcoded to prevent
+// path traversal and other string attacks.
+const supportedEvents = [
+  'guildCreate',
+  'guildDelete',
+  'interactionCreate'
+];
+
 const reqEvent = (event) => require(`./events/${event}`);
-module.exports = bot => {
-    bot.on('guildCreate', reqEvent('guildCreate'));
-    bot.on('guildDelete', reqEvent('guildDelete'));
-    bot.on('message', reqEvent('message'));
-}
+
+module.exports = (client) => {
+  for (const event of supportedEvents) {
+    client.on(event, reqEvent(event));
+  }
+};

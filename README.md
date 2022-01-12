@@ -6,7 +6,7 @@ A Discord bot for Christian communities to use. Welcome to the 21st century. Thi
 
 If you're just looking to add the bot to your Discord server, click the link below.
 
-> Link coming soon!
+[Click here to add](https://discord.com/oauth2/authorize?client_id=739652307762937868&permissions=0&redirect_uri=https%3A%2F%2Fgideontong.com&response_type=code&scope=bot%20applications.commands)
 
 ## Installation
 
